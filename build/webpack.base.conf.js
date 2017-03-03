@@ -4,6 +4,7 @@ var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 var entry = require('./getentry')
 var entries_string = 'src/js/*.js';
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 console.log(entries_string);
 var entries = entry.getEntry(entries_string);
 console.log('entries:', entries);
@@ -25,11 +26,21 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src'),
+      '@': resolve('src')
     }
   },
   module: {
     rules: [
+      {
+        test: /\.scss$/,
+        use: [{
+          loader: "style-loader" // creates style nodes from JS strings
+        }, {
+          loader: "css-loader" // translates CSS into CommonJS
+        }, {
+          loader: "sass-loader" // compiles Sass to CSS
+        }]
+      },
       {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
