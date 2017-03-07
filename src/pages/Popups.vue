@@ -1,9 +1,9 @@
 <template>
   <div class="content">
-    <input type="button" @click="showPop('big')" value="大">
-    <input type="button" @click="showPop('middle')" value="中">
-    <input type="button" @click="showPop('small')" value="小">
-    <input type="button" @click="showPop('middle', true)" value="不显示叉叉">
+    <input type="button" @click="showPop('80%', '40%')" value="大">
+    <input type="button" @click="showPop('60%')" value="中">
+    <input type="button" @click="showPop('40%', 200)" value="小">
+    <input type="button" @click="showPop('60%', 200, true)" value="不显示叉叉">
     <popups
       :pop-option.sync="popOption"
       :btn-confirm-callback="modalConfirm"
@@ -31,9 +31,7 @@
       return {
         popOption: {
           show: true,
-          size: 'middle',
-          width: 400, // width,height 优先级高于size size大中小: 80% 60% 40%
-          height: 200, // width height和size 可二选一
+          width: 400, // width,height 可以数值 可以百分比
           showClose: true,
           btnAlign: 'right',
           btnConfirm: {
@@ -48,15 +46,15 @@
       }
     },
     methods: {
-      showPop (sz, nox) {
-        this.popOption.size = sz
+      showPop (w, h, nox) {
+        this.popOption.width = w
+        this.popOption.height = h
         if (nox) {
           this.popOption.showClose = false
         } else {
           this.popOption.showClose = true
         }
         this.popOption.show = true
-        console.log('size', this.popOption)
       },
       modalConfirm () {
         console.log('confirm')

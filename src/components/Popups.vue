@@ -3,9 +3,8 @@
     <div class="pop-mask"  transition="pop" v-show="popOption.show==true">
       <div class="pop-wrapper">
         <div class="pop-container pop-container-padding"
-             :class="{big: options.size==='big', middle: options.size==='middle', small: options.size==='small'}"
-             :style="{height: options.height + 'px', width: options.width + 'px'}"
-        >
+             :style="{width: options.width ? ((options.width + '').indexOf('%') > 0 ? options.width : options.width + 'px') : 'auto',
+             height: options.height ? ((options.height + '').indexOf('%') > 0 ? options.height : options.height + 'px') : 'auto'}">
           <a class="pop-close"
              @click="hide"
              v-if="options.showClose">X
@@ -53,7 +52,6 @@
           // name: 按钮名称  show: 是否显示按钮
           return {
             show: true,
-            size: 'middle',
             showClose: true, // 是否显示右上角叉叉
             btnAlign: 'center',
             btnConfirm: { // 确定按钮默认设置
@@ -137,16 +135,6 @@
     font-family: Helvetica, Arial, sans-serif;
     box-sizing: border-box;
   }
-  .big {
-    width: 80%;
-  }
-  .middle {
-    width: 60%;
-  }
-  .small {
-    width: 40%;
-  }
-
   .pop-container-padding {
     padding: 20px 30px;
   }
