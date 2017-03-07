@@ -33,7 +33,7 @@
           show: true,
           width: 400, // width,height 可以数值 可以百分比
           showClose: true,
-          btnAlign: 'right',
+          btnAlign: 'right',  // right:按钮靠右 center: 居中(默认)  left: 靠左
           btnConfirm: {
             name: '不确定',
             show: true
