@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 247353 */
+  src: url('//at.alicdn.com/t/font_maruaya00z281tt9.eot');
+  src: url('//at.alicdn.com/t/font_maruaya00z281tt9.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_maruaya00z281tt9.woff') format('woff'),
+  url('//at.alicdn.com/t/font_maruaya00z281tt9.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_maruaya00z281tt9.svg#iconfont') format('svg');
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'iconfont' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-warn:before {
+  content: "\e600";
+}
+
+.icon-cancel:before {
+  content: "\e666";
+}

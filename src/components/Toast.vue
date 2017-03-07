@@ -41,7 +41,6 @@
     watch: {
       toast: {
         handler: function (option) {
-          console.log(1, option.time)
           this.options = option
           this.autoHide(option.time)
         },
