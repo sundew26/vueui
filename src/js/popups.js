@@ -1,15 +1,15 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import Index from './../pages/Index'
+import Popups from './../pages/Popups'
 import router from '../router'
 
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#index',
+  el: '#popups',
   router,
-  template: '<Index/>',
-  components: { Index }
+  template: '<Popups/>',
+  components: { Popups }
 })
