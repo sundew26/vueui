@@ -32,12 +32,6 @@
           }
         }
       }
-    },
-    methods: {
-
-    },
-    mounted () {
-      console.log(this.cell.icon.pic, this.cell.icon.pic.indexOf('.') > -1)
     }
   }
 </script>
