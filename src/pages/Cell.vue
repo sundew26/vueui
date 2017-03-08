@@ -1,14 +1,16 @@
 <template>
   <div class="content">
     <p>标准</p>
-    <cell :cell="cell[0]" :first="first"></cell>
-    <cell :cell="cell[1]"></cell>
+    <cell :icon-pic="cell[0].pic" :text-content="cell[0].content" :link="cell[0].link" :first="first"></cell>
+    <cell :icon-pic="cell[1].pic" :text-content="cell[1].content" :link="cell[1].link"></cell>
     <div class="divder"></div>
     <p>无icon</p>
-    <cell :cell="cell[2]" :first="first"></cell>
+    <cell :icon-show="cell[2].iconShow" :icon-pic="cell[2].pic" :text-content="cell[2].content" :link="cell[2].link"
+          :first="first"></cell>
     <div class="divder"></div>
     <p>无箭头</p>
-    <cell :cell="cell[3]" :first="first"></cell>
+    <cell :right="cell[3].right" :icon-pic="cell[3].pic" :text-content="cell[3].content" :link="cell[3].link"
+          :first="first"></cell>
   </div>
 </template>
 
@@ -24,56 +26,22 @@
         cell: [
           {
             link: 'https://www.kaistart.com/',
-            icon: {
-              show: true,
-              pic: 'icon-beauty'  // iconfont里已经有了的
-            },
-            text: {
-              show: true,
-              value: '我是一个iconfont的cell'
-            },
-            right: {
-              show: true
-            }
+            pic: 'icon-beauty',  // iconfont里已经有了的
+            content: '我是一个iconfont的cell'
           },
           {
-            icon: {
-              show: true,
-              pic: 'http://images.kaistart.com/o_1b6341fst9q8ig51jab6bt14d67.jpeg'  // 图片
-            },
-            text: {
-              show: true,
-              value: '我是pic类型的cell'
-            },
-            right: {
-              show: true
-            }
+            pic: 'http://images.kaistart.com/o_1b6341fst9q8ig51jab6bt14d67.jpeg',  // 图片
+            content: '我是pic类型的cell'
           },
           {
-            icon: {
-              show: false,
-              pic: 'http://images.kaistart.com/o_1b6341fst9q8ig51jab6bt14d67.jpeg'
-            },
-            text: {
-              show: true,
-              value: '我没有icon'
-            },
-            right: {
-              show: true
-            }
+            iconShow: false,
+            pic: 'http://images.kaistart.com/o_1b6341fst9q8ig51jab6bt14d67.jpeg',
+            content: '我没有icon'
           },
           {
-            icon: {
-              show: true,
-              pic: 'http://images.kaistart.com/o_1b6341fst9q8ig51jab6bt14d67.jpeg'
-            },
-            text: {
-              show: true,
-              value: '我没有右侧箭头'
-            },
-            right: {
-              show: false
-            }
+            pic: 'http://images.kaistart.com/o_1b6341fst9q8ig51jab6bt14d67.jpeg',
+            content: '我没有右侧箭头',
+            right: false
           }
         ]
       }
