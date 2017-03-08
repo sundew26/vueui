@@ -59,7 +59,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   @import '../static/common.scss';
 
 </style>

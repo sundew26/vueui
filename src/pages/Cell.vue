@@ -49,7 +49,7 @@
   }
 </script>
 
-<style>
+<style scoped>
 @import "../static/common.scss";
   .content {
     margin: 20px 0;

@@ -41,7 +41,7 @@
   }
 </script>
 
-<style>
+<style scoped>
 @import "../static/common.scss";
   ul li {
     list-style: none;
