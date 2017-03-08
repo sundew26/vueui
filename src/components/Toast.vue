@@ -1,12 +1,12 @@
 <template>
-  <transition name="toast">
+  <!--<transition name="toast">-->
     <div class="toast" v-show="options.show==true"
          :class="{top: options.position==='top', middle: options.position==='middle', bottom: options.position==='bottom'}">
       <span v-if="options.type==='cancel'" class="icon-cancel"></span>
       <span v-if="options.type==='warn'" class="icon-warn"></span>
       {{options.msg}}
     </div>
-  </transition>
+  <!--</transition>-->
 </template>
 <script>
   export default {
@@ -82,12 +82,13 @@
     transform: translateX(-50%);
   }
 
-  /*vue2.0 transition*/
-  .toast-enter-active, .toast-leave-active {
+
+  /*vue2.0 transition 不用*/
+  /*.toast-enter-active, .toast-leave-active {
     transition: opacity .6s;
     opacity: 1;
   }
   .toast-enter, .toast-leave-to{
     opacity: 0;
-  }
+  }*/
 </style>

@@ -1,7 +1,8 @@
 <template>
   <div class="content">
     <p>索引</p>
-    <cell v-for="(item, idx) in cell" :target="item.target" :icon-pic="item.pic" :text-content="item.content"
+    <cell v-for="(item, idx) in cell" :key="item.content" :target="item.target" :icon-pic="item.pic"
+          :text-content="item.content"
           :link="item.link"
           :first="idx===0"></cell>
   </div>
