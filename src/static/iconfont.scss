@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';  /* project id 247353 */
-  src: url('//at.alicdn.com/t/font_maruaya00z281tt9.eot');
-  src: url('//at.alicdn.com/t/font_maruaya00z281tt9.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_maruaya00z281tt9.woff') format('woff'),
-  url('//at.alicdn.com/t/font_maruaya00z281tt9.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_maruaya00z281tt9.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_5bya8efkrvp74x6r.eot');
+  src: url('//at.alicdn.com/t/font_5bya8efkrvp74x6r.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_5bya8efkrvp74x6r.woff') format('woff'),
+  url('//at.alicdn.com/t/font_5bya8efkrvp74x6r.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_5bya8efkrvp74x6r.svg#iconfont') format('svg');
 }
 
 [class^="icon-"], [class*=" icon-"] {
@@ -29,3 +29,16 @@
 .icon-cancel:before {
   content: "\e666";
 }
+
+.icon-avator:before {
+  content: "\e614";
+}
+
+.icon-beauty:before {
+  content: "\e609";
+}
+
+.icon-right:before {
+  content: "\e613";
+}
+
