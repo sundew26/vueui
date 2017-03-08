@@ -1,5 +1,6 @@
 <template>
-  <loading></loading>
+  <div class="content">
+    <loading></loading>
   </div>
 </template>
 
@@ -13,5 +14,5 @@
 </script>
 
 <style>
-
+  @import '../static/common.scss';
 </style>

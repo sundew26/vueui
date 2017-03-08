@@ -19,37 +19,37 @@
         cell: [
           {
             link: '../demo/inputs.html',
-            pic: 'icon-beauty',
+            pic: 'icon-inputs',
             content: '输入框组件',
             target: '_blank'
           },
           {
             link: '../demo/cell.html',
-            pic: 'icon-beauty',
+            pic: 'icon-cell',
             content: 'cell组件',
             target: '_blank'
           },
           {
             link: '../demo/loading.html',
-            pic: 'icon-beauty',
+            pic: 'icon-loading',
             content: 'loading组件',
             target: '_blank'
           },
           {
             link: '../demo/popups.html',
-            pic: 'icon-beauty',
+            pic: 'icon-popups',
             content: '弹窗组件',
             target: '_blank'
           },
           {
             link: '../demo/tabbar.html',
-            pic: 'icon-beauty',
+            pic: 'icon-tabbar',
             content: 'tabbar组件',
             target: '_blank'
           },
           {
             link: '../demo/toast.html',
-            pic: 'icon-beauty',
+            pic: 'icon-toast',
             content: 'toast组件',
             target: '_blank'
           }
@@ -60,5 +60,5 @@
 </script>
 
 <style>
-
+  @import '../static/common.scss';
 </style>

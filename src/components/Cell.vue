@@ -64,12 +64,16 @@
     width: 20px;
     height: 20px;
     display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    line-height: 20px;
+    margin-right: 10px;
   }
   .cell-img {
     width: 18px;
     height: 18px;
     display: inline-block;
-    margin-right: 5px;
+    margin-right: 10px;
   }
   .cell-text {
     display: inline-block;

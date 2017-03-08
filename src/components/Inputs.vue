@@ -163,7 +163,9 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import "../static/common.scss";
+  .h60 {
+    height: 60px!important;
+  }
   .edit-row {
     position: relative;
   }
