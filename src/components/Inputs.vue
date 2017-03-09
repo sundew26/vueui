@@ -1,9 +1,11 @@
 <template>
   <div class="edit-group">
     <div class="edit-row">
-      <input v-if="tag==='input'" :disabled="disable" class="edit-area" :class="{'bd-red': validInfo[0]}" v-model="val" :placeholder="placeholderText"
+      <input v-if="tag==='input'" :disabled="disable" class="edit-area"
+             :class="{'bd-red': validInfo[0], disabled: disable}"
+             v-model="val" :placeholder="placeholderText"
              name="">
-      <textarea v-if="tag==='textarea'" :disabled="disable" class="edit-area h60" :class="{'bd-red': validInfo[0]}"
+      <textarea v-if="tag==='textarea'" :disabled="disable" class="edit-area h60" :class="{'bd-red': validInfo[0], disabled: disable}"
                 v-model="val"
                 :placeholder="placeholderText" name=""></textarea>
       <span class="limit-len" :class="{btm10: tag==='textarea'}" v-if="maxlength">{{len}}/{{maxlength}}</span>
@@ -34,18 +36,16 @@
       placeholderText: {
         type: String
       },
+      // 正则约束规范
       pattern: {
         type: Array
-      },
-      validEvent: {
-        type: String
       },
       // 是否是必填
       required: {
         type: Boolean,
         default: true
       },
-      // 最大长度
+      // 最大长度 不为空时字数限制字段显示
       maxlength: {
         type: Number
       },
@@ -99,10 +99,6 @@
       validInfo () {
         this.validCallback(this.validInfo, this.name)
       }
-    },
-    components: {
-    },
-    computed: {
     },
     methods: {
       blurValid () {
@@ -194,5 +190,8 @@
     color: #ee685d;
     font-size: 12px;
     text-align: left;
+  }
+  .disabled {
+    background-color: #efefef;
   }
 </style>

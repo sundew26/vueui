@@ -20,9 +20,9 @@
     },
     data () {
       return {
-        tabbar: ['民宿', '餐饮', '农业', '其它'],
-        tabColor: 'green',
-        selIdx: 0,
+        tabbar: ['民宿', '餐饮', '农业', '其它'], // tabbar的四个item内容
+        tabColor: 'green',  // 点击状态item的颜色
+        selIdx: 0,  // 默认选中
         tabbar1: ['民宿', '餐饮'],
         tabColor1: '#ff5000',
         selIdx1: 0

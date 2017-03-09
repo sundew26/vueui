@@ -100,7 +100,6 @@
       popOption: {
         handler: function (options) {
           this.options = options
-          console.log(1, this.options)
         },
         deep: true
       }
