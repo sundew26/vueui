@@ -7,7 +7,8 @@
     <input type="button" @click="showToast(5)" value="警告"/>
     <input type="button" @click="showToast(6)" value="取消"/>
     <input type="button" @click="showToast(7)" value="1s消失"/>
-    <Toast :toast="toast"></Toast>
+    <Toast @toast-hide="toastHide" :show="toast.show" :position="toast.position" :type="toast.type" :time="toast.time"
+            :msg="toast.msg"></Toast>
   </div>
 </template>
 
@@ -19,7 +20,7 @@
     },
     data () {
       return {
-        toast: {
+        toast: {  // 这些参数不用都写上 此处为展示多个
           show: true,
           position: 'top',
           type: 'text',
@@ -29,6 +30,9 @@
       }
     },
     methods: {
+      toastHide () {  // 这个得加, 因为vue2.0默认无法在子组件修改父组件的值
+        this.toast.show = false
+      },
       showToast (item) {
         switch (item) {
           case 1:
@@ -37,7 +41,7 @@
               position: 'middle',
               type: 'text',
               time: '3000',
-              msg: 'hello vueUI'
+              msg: '默认就是我这样的'
             }
             break
           case 2:
@@ -45,8 +49,8 @@
               show: true,
               position: 'middle',
               type: 'text',
-              time: '3000',
-              msg: 'hello vueUI'
+              time: '2000',
+              msg: '我显示2s'
             }
             break
           case 3:
@@ -55,7 +59,7 @@
               position: 'top',
               type: 'text',
               time: '3000',
-              msg: 'hello vueUI'
+              msg: '我在顶部显示'
             }
             break
           case 4:
@@ -64,7 +68,7 @@
               position: 'bottom',
               type: 'text',
               time: '3000',
-              msg: 'hello vueUI'
+              msg: '我在底部显示'
             }
             break
           case 5:
@@ -73,7 +77,7 @@
               position: 'middle',
               type: 'warn',
               time: '3000',
-              msg: 'hello vueUI'
+              msg: '我是警告类型的提示'
             }
             break
           case 6:
@@ -82,7 +86,7 @@
               position: 'middle',
               type: 'cancel',
               time: '6000',
-              msg: 'hello vueUI'
+              msg: '我是取消类型的提示, 我会展示6s哦'
             }
             break
           case 7:
@@ -91,7 +95,7 @@
               position: 'middle',
               type: 'cancel',
               time: '1000',
-              msg: 'hello vueUI'
+              msg: '我只显示1s, 看好了'
             }
             break
         }

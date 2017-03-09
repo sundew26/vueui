@@ -1,50 +1,57 @@
 <template>
-  <!--<transition name="toast">-->
-    <div class="toast" v-show="options.show==true"
-         :class="{top: options.position==='top', middle: options.position==='middle', bottom: options.position==='bottom'}">
-      <span v-if="options.type==='cancel'" class="icon-cancel"></span>
-      <span v-if="options.type==='warn'" class="icon-warn"></span>
-      {{options.msg}}
+  <transition name="toast">
+    <div class="toast" v-show="toastShow==true"
+         :class="{top: position==='top', middle: position==='middle', bottom: position==='bottom'}">
+      <span v-if="type==='cancel'" class="icon-cancel"></span>
+      <span v-if="type==='warn'" class="icon-warn"></span>
+      {{msg}}
     </div>
-  <!--</transition>-->
+  </transition>
 </template>
 <script>
   export default {
     props: {
-      toast: {
-        type: Object,
-        default: function () {
-          return {
-            show: false, // 显示toast
-            position: 'middle', // toast位置 top middle bottom
-            type: 'text', // 类型 text cancel warn
-            time: '3000' // 显示时间 默认3s
-          }
-        }
+      show: { // 显示toast
+        type: Boolean,
+        default: false
+      },
+      position: { // toast位置 top middle bottom
+        type: String,
+        default: 'middle'
+      },
+      type: { // 类型 text cancel warn
+        type: String,
+        default: 'text'
+      },
+      time: { // 显示时间 默认3s
+        type: String,
+        default: '3000'
+      },
+      msg: {  // 内容
+        type: String,
+        default: ''
       }
     },
     data () {
       return {
-        options: this.toast
+        toastShow: this.show
       }
     },
     methods: {
-      autoHide (time) {
+      autoShowHide () {
+        this.toastShow = this.show
         setTimeout(function () {
-          this.options.show = false
-        }.bind(this), time)
+          this.toastShow = false
+          this.$emit('toast-hide')
+        }.bind(this), this.time)
       }
     },
     mounted () {
-      this.autoHide(this.options.time)
+      this.autoShowHide()
     },
     watch: {
-      toast: {
-        handler: function (option) {
-          this.options = option
-          this.autoHide(option.time)
-        },
-        deep: true
+      show () {
+        this.autoShowHide()
       }
     }
   }
@@ -54,8 +61,9 @@
   .toast {
     padding: 0 10px;
     max-width: 80%;
+    max-height: 60px;
     line-height: 30px;
-    height: 30px;
+    overflow: hidden;
     background: rgba(0, 0, 0, 0.7);
     border-radius: 4px;
     text-align: center;
@@ -82,13 +90,24 @@
     transform: translateX(-50%);
   }
 
-
-  /*vue2.0 transition 不用*/
-  /*.toast-enter-active, .toast-leave-active {
-    transition: opacity .6s;
-    opacity: 1;
+  /*vue2.0 transition*/
+  .toast-enter {
+    transform: translateX(-50%);
+    opacity: 0.7;
   }
-  .toast-enter, .toast-leave-to{
+  .toast-enter-active {
+    transition: all ease-in-out .6s;
+    transform: translateX(-50%) scale(0.8);
     opacity: 0;
-  }*/
+  }
+  .toast-leave-active {
+    transition: all ease-in-out 1s;
+    transform: translateX(-50%);
+    opacity: 0.7;
+  }
+  .toast-leave-to{
+    opacity: 0;
+    transform: translateX(-50%) scale(0.8);
+  }
+
 </style>
