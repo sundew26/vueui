@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';  /* project id 247353 */
-  src: url('//at.alicdn.com/t/font_l57g56b58famj9k9.eot');
-  src: url('//at.alicdn.com/t/font_l57g56b58famj9k9.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_l57g56b58famj9k9.woff') format('woff'),
-  url('//at.alicdn.com/t/font_l57g56b58famj9k9.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_l57g56b58famj9k9.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_slshae0fsyaurf6r.eot');
+  src: url('//at.alicdn.com/t/font_slshae0fsyaurf6r.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_slshae0fsyaurf6r.woff') format('woff'),
+  url('//at.alicdn.com/t/font_slshae0fsyaurf6r.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_slshae0fsyaurf6r.svg#iconfont') format('svg');
 }
 
 [class^="icon-"], [class*=" icon-"] {
@@ -66,4 +66,15 @@
   content: "\e62d";
 }
 
+.icon-buttons:before {
+  content: "\e62a";
+}
+
+.icon-btn-loading:before {
+  content: "\e60a";  /*e65c e615 e630 e603 e602 e770 e601*/
+}
+
+.icon-page:before {
+  content: "\e62e";
+}
 

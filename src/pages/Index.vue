@@ -53,6 +53,18 @@
             pic: 'icon-toast',
             content: 'toast组件',
             target: '_blank'
+          },
+          {
+            link: '../demo/buttons.html',
+            pic: 'icon-buttons',
+            content: 'button组件',
+            target: '_blank'
+          },
+          {
+            link: '../demo/page.html',
+            pic: 'icon-page',
+            content: 'page分页组件',
+            target: '_blank'
           }
         ]
       }
