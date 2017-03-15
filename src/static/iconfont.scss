@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';  /* project id 247353 */
-  src: url('//at.alicdn.com/t/font_slshae0fsyaurf6r.eot');
-  src: url('//at.alicdn.com/t/font_slshae0fsyaurf6r.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_slshae0fsyaurf6r.woff') format('woff'),
-  url('//at.alicdn.com/t/font_slshae0fsyaurf6r.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_slshae0fsyaurf6r.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_engh0rziib8d7vi.eot');
+  src: url('//at.alicdn.com/t/font_engh0rziib8d7vi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_engh0rziib8d7vi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_engh0rziib8d7vi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_engh0rziib8d7vi.svg#iconfont') format('svg');
 }
 
 [class^="icon-"], [class*=" icon-"] {
@@ -76,5 +76,9 @@
 
 .icon-page:before {
   content: "\e62e";
+}
+
+.icon-switchs:before {
+  content: "\e6d1";
 }
 

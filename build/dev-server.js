@@ -64,7 +64,8 @@ app.use(hotMiddleware)
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./src/static'))
 
-var uri = 'http://localhost:' + port
+// 自动打开页面
+var uri = 'http://localhost:' + port + '/demo/index.html'
 
 devMiddleware.waitUntilValid(function () {
   console.log('> Listening at ' + uri + '\n')

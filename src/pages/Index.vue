@@ -65,6 +65,12 @@
             pic: 'icon-page',
             content: 'page分页组件',
             target: '_blank'
+          },
+          {
+            link: '../demo/switchs.html',
+            pic: 'icon-switchs',
+            content: 'switch开关',
+            target: '_blank'
           }
         ]
       }
