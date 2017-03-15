@@ -1,56 +1,64 @@
 <template>
-  <label class="switch" @click="switchPan" :style="{'background-color': this.bg}">
+  <label class="switch" :style="{'background-color': this.bg, width: width + 'px', height: height + 'px', 'border-radius': height/2 + 'px'}">
     <input type="checkbox" :name="name" v-model="switchVal" :value="value" style="display: none"/>
-    <span class="pan" :class="switchVal?'right10':'left10'">{{showText
-      }}</span>
-    <span class="turn" :class="switchVal?'left5':'right5'"></span>
+    <span class="pan" :class="switchVal?'right10':'left10'"
+          :style="{'line-height': height - 2 + 'px', 'font-size': parseInt(turnH, 10) + 2 + 'px'}">{{showText}}</span>
+    <span class="turn" :class="switchVal?'left5':'right5'" :style="{width: turnH + 'px', height: turnH + 'px', 'border-radius': turnH/2 + 'px', top: (height - turnH - 2 ) / 2 + 'px'}"></span>
   </label>
 </template>
 <script>
   export default {
     props: {
-      onText: {
+      width: {  // switch 的宽度
+        type: [String, Number],
+        default: 60
+      },
+      height: { // switch的高度
+        type: [String, Number],
+        default: 22
+      },
+      turnH: {  // switch里小圆圈的宽高
+        type: [String, Number],
+        default: 12
+      },
+      onText: { // on状态的文字显示
         type: String,
         default: ''
       },
-      offText: {
+      offText: {  // off状态的文字显示
         type: String,
         default: ''
       },
-      onColor: {
+      onColor: {  // on状态的颜色
         type: String,
         default: '#34a853'
       },
-      offColor: {
+      offColor: { // off状态的颜色
         type: String,
         default: '#e66d72'
       },
-      value: {
+      value: {  // true  false值  true时 状态为on false状态为off
         type: Boolean,
         default: true
       },
-      name: {
+      name: { // switch名称  用于form传值
         type: String,
         default: ''
       }
     },
     data () {
       return {
-        showText: this.value ? this.onText : this.offText,
-        bg: this.value ? this.onColor : this.offColor,
-        switchVal: this.value
+        showText: this.value ? this.onText : this.offText,  // 展示的文字
+        bg: this.value ? this.onColor : this.offColor,  // 背景
+        switchVal: this.value // 值
       }
     },
     watch: {
       switchVal: function (val) {
         this.showText = val ? this.onText : this.offText
         this.bg = val ? this.onColor : this.offColor
+        // 点击切换switch  事件
         this.$emit('switch-change', val)
-      }
-    },
-    methods: {
-      switchPan: function () {
-        console.log(this.showText, this.value, this.switchVal)
       }
     }
   }
@@ -60,19 +68,17 @@
 
   .switch {
     display: inline-block;
-    width: 60px;
-    height: 20px;
-    border-radius: 10px;
     position: relative;
     transition: all ease .6s;
     border: 1px solid #eee;
     box-sizing: border-box;
+    width: 60px;
+    height: 22px;
+    border-radius: 11px;
   }
   .pan {
     display: inline-block;
     position: absolute;
-    top: 0;
-    line-height: 18px;
     font-size: 14px;
     color: #fff;
     transition: all ease .6s;
@@ -84,12 +90,8 @@
   }
   .turn {
     display: inline-block;
-    width: 12px;
-    height: 12px;
     background-color: #fff;
-    border-radius: 10px;
     position: absolute;
-    top: 3px;
     transition: all ease .6s;
     border: 1px solid #eee;
     box-sizing: border-box;
