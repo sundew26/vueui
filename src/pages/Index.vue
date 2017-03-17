@@ -71,6 +71,12 @@
             pic: 'icon-switchs',
             content: 'switch开关',
             target: '_blank'
+          },
+          {
+            link: '../demo/folder.html',
+            pic: 'icon-folder',
+            content: 'folder折叠面板',
+            target: '_blank'
           }
         ]
       }
