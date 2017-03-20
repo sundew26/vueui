@@ -70,7 +70,7 @@
   }
   .folder-content {
     border-top: 1px solid #ed5565;
-    transition: all ease .6s;
+    transition: all linear .6s;
     overflow: hidden;
     text-align: left;
     max-height: 1000px;
