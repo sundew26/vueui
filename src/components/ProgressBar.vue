@@ -1,7 +1,7 @@
 <template>
   <div class="progress-bar-outer" :style="{width: pW==='100%'?'100%' : ''}">
     <div v-if="pType==='liner'" class="progress-bar bg-gray"
-         :style="{height: pH + 'px', width: (pW + '').indexOf('%') > -1 ? pW : (pW + 'px'), 'border-radius': Number(pH)/2 + 'px'}">
+      :style="{height: pH + 'px', width: (pW + '').indexOf('%') > -1 ? pW : (pW + 'px'), 'border-radius': Number(pH)/2 + 'px'}">
       <span class="progress-inner"
         :class="Number(percentage) <= 0 ? '' : Number(percentage) < 50 ? 'bg-red' : Number(percentage) === 50 ? 'bg-yellow' : Number(percentage) < 100 ? 'bg-blue' : 'bg-green'"
         :style="{width: (pW + '').indexOf('%') > -1 ? (Number(pW.split('%')[0]) * Number(percentage) / 100 + '%') : (Number(pW) * Number(percentage) / 100 + 'px'), 'border-radius': Number(pH)/2 + 'px'}">
@@ -10,14 +10,16 @@
     </div>
     <div v-if="pType==='circle'" class="progress-circle">
       <i class="circle-text">{{percentage + '%'}}</i>
+      <!--viewbox:x y width height ---视区盒子 x:左上角横坐标，y:左上角纵坐标，width:宽度，height:高度-->
       <svg :width="Number(size)*2" :height="Number(size)*2"
-           :viewbox="'0 0 ' + Number(size)*2 + ' ' + Number(size)*2">
+        :viewbox="'0 0 ' + Number(size)*2 + ' ' + Number(size)*2">
+        <!--cx, cy: 圆心坐标  r: 半径  stroke-width: 圆环宽度-->
+        <circle :cx="Number(size)" :cy="Number(size)" :r="Number(size)-Number(pH)" :stroke-width="Number(pH)" stroke="#d1d3d7" fill="none"></circle>
+        <!--matrix(0,-1,1,0,0,size): http://www.zhangxinxu.com/wordpress/2012/06/css3-transform-matrix-%E7%9F%A9%E9%98%B5/ -->
+        <!--stroke-dasharray(a b):  虚线  a: 虚线的宽度 b: 虚线的间距-->
         <circle :cx="Number(size)" :cy="Number(size)" :r="Number(size)-Number(pH)" :stroke-width="Number(pH)"
-                stroke="#d1d3d7"
-                fill="none"></circle>
-        <circle :cx="Number(size)" :cy="Number(size)" :r="Number(size)-Number(pH)" :stroke-width="Number(pH)"
-                :stroke="Number(percentage) <= 0 ? '' : Number(percentage) < 50 ? 'red' : Number(percentage) === 50 ? 'yellow' : Number(percentage) < 100 ? 'blue' : 'green'" fill="none"
-                :transform="'matrix(0,-1,1,0,0,'+Number(size)*2+')'" stroke-dasharray="0 1069"></circle>
+          :stroke="Number(percentage) <= 0 ? '' : Number(percentage) < 50 ? 'red' : Number(percentage) === 50 ? 'yellow' : Number(percentage) < 100 ? 'blue' : 'green'" fill="none"
+          :transform="'matrix(0,-1,1,0,0,'+Number(size)*2+')'" stroke-dasharray="0 1069"></circle>
       </svg>
     </div>
   </div>
@@ -52,12 +54,6 @@
       size: { // circle 的大小 size - pH 就是半径
         type: [Number, String],
         default: 50
-      },
-      callback: { // 100%的回调函数
-        type: Function,
-        default: function () {
-          return function () {}
-        }
       }
     },
     mounted: function () {
