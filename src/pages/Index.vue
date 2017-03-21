@@ -77,6 +77,12 @@
             pic: 'icon-folder',
             content: 'folder折叠面板',
             target: '_blank'
+          },
+          {
+            link: '../demo/progressBar.html',
+            pic: 'icon-progress',
+            content: 'progressBar进度条组件',
+            target: '_blank'
           }
         ]
       }
