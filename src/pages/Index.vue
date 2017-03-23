@@ -83,6 +83,12 @@
             pic: 'icon-progress',
             content: 'progressBar进度条组件',
             target: '_blank'
+          },
+          {
+            link: '../demo/inputNum.html',
+            pic: 'icon-inputNum',
+            content: '加减计数器',
+            target: '_blank'
           }
         ]
       }
