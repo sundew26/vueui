@@ -70,7 +70,7 @@
   .switch {
     display: inline-block;
     position: relative;
-    transition: all ease .6s;
+    transition: all ease .3s;
     border: 1px solid #eee;
     box-sizing: border-box;
     width: 60px;
@@ -93,7 +93,7 @@
     display: inline-block;
     background-color: #fff;
     position: absolute;
-    transition: all ease .6s;
+    transition: all ease .3s;
     border: 1px solid #eee;
     box-sizing: border-box;
   }
