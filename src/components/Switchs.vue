@@ -1,9 +1,10 @@
 <template>
   <label class="switch" :style="{'background-color': this.bg, width: width + 'px', height: height + 'px', 'border-radius': height/2 + 'px'}">
     <input type="checkbox" :name="name" v-model="switchVal" :value="value" style="display: none"/>
-    <span class="pan" :class="switchVal?'right10':'left10'"
+    <span class="pan" :class="switchVal?'left10':'right10'"
           :style="{'line-height': height - 2 + 'px', 'font-size': parseInt(turnH, 10) + 2 + 'px'}">{{showText}}</span>
-    <span class="turn" :class="switchVal?'left5':'right5'" :style="{width: turnH + 'px', height: turnH + 'px', 'border-radius': turnH/2 + 'px', top: (height - turnH - 2 ) / 2 + 'px'}"></span>
+    <span class="turn"
+          :style="{width: turnH + 'px', height: turnH + 'px', 'border-radius': turnH/2 + 'px', top: (height - turnH - 2 ) / 2 + 'px', left: switchVal? Number(width) - Number(turnH) - 5 + 'px'  : 5 + 'px'}"></span>
   </label>
 </template>
 <script>
