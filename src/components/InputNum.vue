@@ -59,13 +59,12 @@
           this.inputVal = parseInt(this.inputVal, 10)
         }
         if (!/^[1-9]+[0-9]*$/gi.test(this.inputVal)) {
-          this.inputVal = this.inputVal.replace(/[^0-9]/gi, '')
-          return
+          this.inputVal = (this.inputVal + '').replace(/[^0-9]/gi, '')
         }
         // 输入值是数字时 超过最大值  以及小于最小值的操作
         if (parseInt(this.inputVal, 10) > parseInt(this.max, 10)) {
           this.inputVal = parseInt(this.max, 10)
-        } else if (parseInt(this.inputVal, 10) < parseInt(this.min, 10)) {
+        } else if (this.inputVal === '' || parseInt(this.inputVal, 10) < parseInt(this.min, 10)) {
           this.inputVal = parseInt(this.min, 10)
         }
       }
