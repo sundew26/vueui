@@ -1,8 +1,8 @@
 <template>
   <div class="input-num-box clearfix" :init-val="initVal" :max="max" :min="min" :increase="increase">
-    <span class="minus" :class="{gray: Number(inputVal) === Number(min)}" @click="minus">-</span>
+    <span class="minus" :class="{gray: Number(inputVal) <= Number(min)}" @click="minus">-</span>
     <input v-model="inputVal" :name="name" type="text" @keyup="valid" value="0" class="input-number">
-    <span class="add" :class="{gray: Number(inputVal) === Number(max)}" @click="add">+</span>
+    <span class="add" :class="{gray: Number(inputVal) >= Number(max)}" @click="add">+</span>
   </div>
 
 </template>
@@ -55,8 +55,11 @@
       },
       valid: function () {
         // 校验文本框输入的是否是数字
+        if (/^[0]+[0-9]*$/gi.test(this.inputVal)) {
+          this.inputVal = parseInt(this.inputVal, 10)
+        }
         if (!/^[1-9]+[0-9]*$/gi.test(this.inputVal)) {
-          this.inputVal = this.min
+          this.inputVal = this.inputVal.replace(/[^0-9]/gi, '')
           return
         }
         // 输入值是数字时 超过最大值  以及小于最小值的操作
