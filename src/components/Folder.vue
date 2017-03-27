@@ -1,7 +1,6 @@
 <template>
   <div class="folder">
-    <slot name="folder-item">
-    </slot>
+    <slot></slot>
   </div>
 </template>
 <script>

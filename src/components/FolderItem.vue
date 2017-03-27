@@ -1,5 +1,5 @@
 <template>
-  <div slot="folder-item">
+  <div class="folder-item">
     <div class="folder-title" :class="{active: nofolder}" @click="open">
       <i class="icon-right folder-icon" :class="{unfolder: nofolder}"></i>
       {{title}}
