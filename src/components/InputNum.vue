@@ -1,10 +1,16 @@
 <template>
-  <div class="input-num-box clearfix" :init-val="initVal" :max="max" :min="min" :increase="increase">
-    <span class="minus" :class="{gray: Number(inputVal) <= Number(min)}" @click="minus">-</span>
-    <input v-model="inputVal" :name="name" type="text" @keyup="valid" value="0" class="input-number">
-    <span class="add" :class="{gray: Number(inputVal) >= Number(max)}" @click="add">+</span>
+  <div  class="input-num-box clearfix" :init-val="initVal" :max="max" :min="min" :increase="increase">
+    <div v-if="!!arrow">
+      <span class="minus arrow-down icon-down" :class="{gray: Number(inputVal) <= Number(min)}" @click="minus"></span>
+      <input v-model="inputVal" :name="name" type="text" @keyup="valid" value="0" class="input-number"/>
+      <span class="add arrow-up icon-up" :class="{gray: Number(inputVal) >= Number(max)}" @click="add"></span>
+    </div>
+    <div v-if="!arrow">
+      <span class="minus icon-minus" :class="{gray: Number(inputVal) <= Number(min)}" @click="minus"></span>
+      <input v-model="inputVal" :name="name" type="text" @keyup="valid" value="0" class="input-number"/>
+      <span class="add icon-plus" :class="{gray: Number(inputVal) >= Number(max)}" @click="add"></span>
+    </div>
   </div>
-
 </template>
 <script>
   export default {
@@ -28,6 +34,10 @@
       name: { // 数值框的name  为了传值方便
         type: String,
         default: 'inputName'
+      },
+      arrow: { // 是否是箭头样式的
+        type: [Boolean, String],
+        default: false
       }
     },
     data () {
@@ -88,6 +98,9 @@
     border: 1px solid #ddd;
     display: inline-block;
     border-radius: 4px;
+    position: relative;
+    min-width: 75px;
+    max-width: 120px;
   }
   .add {
     float: left;
@@ -97,7 +110,6 @@
     text-align: center;
     color: #fff;
     background-color: #ff0000;
-    border-left: 1px solid #ddd;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -124,7 +136,6 @@
     text-align: center;
     color: #fff;
     background-color: #ff0000;
-    border-right: 1px solid #ddd;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -134,5 +145,24 @@
   .gray {
     background-color: #ddd;
     cursor: default;
+  }
+  .arrow-up {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    top: 0;
+    right: 0;
+    font-size: 10px;
+    border-bottom: 1px solid #efefef;
+  }
+  .arrow-down {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    bottom: 0;
+    right: 0;
+    font-size: 10px;
   }
 </style>
