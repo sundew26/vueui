@@ -89,6 +89,12 @@
             pic: 'icon-inputNum',
             content: '加减计数器',
             target: '_blank'
+          },
+          {
+            link: '../demo/stepbar.html',
+            pic: 'icon-step',
+            content: '步骤条',
+            target: '_blank'
           }
         ]
       }
