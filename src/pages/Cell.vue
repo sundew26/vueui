@@ -25,21 +25,21 @@
         first: true,
         cell: [
           {
-            link: 'https://www.kaistart.com/',
+            link: 'https://stardew516.github.io/',
             pic: 'icon-beauty',  // iconfont里已经有了的
             content: '我是一个iconfont的cell'
           },
           {
-            pic: 'http://images.kaistart.com/o_1b6341fst9q8ig51jab6bt14d67.jpeg',  // 图片
+            pic: 'https://avatars0.githubusercontent.com/u/15061629',  // 图片
             content: '我是pic类型的cell'
           },
           {
             iconShow: false,
-            pic: 'http://images.kaistart.com/o_1b6341fst9q8ig51jab6bt14d67.jpeg',
+            pic: 'https://avatars0.githubusercontent.com/u/15061629',
             content: '我没有icon'
           },
           {
-            pic: 'http://images.kaistart.com/o_1b6341fst9q8ig51jab6bt14d67.jpeg',
+            pic: 'https://avatars0.githubusercontent.com/u/15061629',
             content: '我没有右侧箭头',
             right: false
           }

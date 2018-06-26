@@ -1,0 +1,124 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 247353 */
+  src: url('//at.alicdn.com/t/font_sfbdtgvhlzfiggb9.eot');
+  src: url('//at.alicdn.com/t/font_sfbdtgvhlzfiggb9.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_sfbdtgvhlzfiggb9.woff') format('woff'),
+  url('//at.alicdn.com/t/font_sfbdtgvhlzfiggb9.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_sfbdtgvhlzfiggb9.svg#iconfont') format('svg');
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'iconfont' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-warn:before {
+  content: "\e600";
+}
+
+.icon-cancel:before {
+  content: "\e666";
+}
+
+.icon-avator:before {
+  content: "\e614";
+}
+
+.icon-beauty:before {
+  content: "\e609";
+}
+
+.icon-right:before {
+  content: "\e613";
+}
+
+.icon-popups:before {
+  content: "\e690";
+}
+
+.icon-loading:before {
+  content: "\e615";
+}
+
+.icon-tabbar:before {
+  content: "\e656";
+}
+
+.icon-inputs:before {
+  content: "\e627";
+}
+
+.icon-toast:before {
+  content: "\e6c5";
+}
+
+.icon-cell:before {
+  content: "\e62d";
+}
+
+.icon-buttons:before {
+  content: "\e694";
+}
+
+.icon-btn-loading:before {
+  content: "\e60a";  /*e65c e615 e630 e603 e602 e770 e601*/
+}
+
+.icon-page:before {
+  content: "\e62e";
+}
+
+.icon-switchs:before {
+  content: "\e6d1";
+}
+
+.icon-folder:before {
+  content: "\e6a0";
+}
+
+.icon-up:before {
+  content: "\e644";
+}
+
+.icon-down:before {
+  content: "\e643";
+}
+
+.icon-progress:before {
+  content: "\e60b";
+}
+
+.icon-inputNum:before {
+  content: "\e61b";
+}
+
+.icon-plus:before {
+  content: "\e62b";
+}
+
+.icon-minus:before {
+  content: "\e634";
+}
+
+.icon-step:before {
+  content: "\e618";
+}
+
+.icon-step-yes:before {
+  content: "\e64a";
+}
+
+.icon-step-no:before {
+  content: "\e604";
+}
+
