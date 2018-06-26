@@ -110,6 +110,7 @@ pages.forEach(function(pathname) {
       // https://github.com/kangax/html-minifier#options-quick-reference
     },
     // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+    chunks: ['manifest', 'vendor', 'app'],
     chunksSortMode: 'dependency'
   };
   if (pathname in baseWebpackConfig.entry) {
