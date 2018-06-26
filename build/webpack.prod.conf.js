@@ -111,7 +111,7 @@ pages.forEach(function(pathname) {
     },
     // necessary to consistently work with multiple chunks via CommonsChunkPlugin
     chunks: ['manifest', 'vendor', 'app'],
-    chunksSortMode: 'dependency'
+    chunksSortMode: 'auto'
   };
   if (pathname in baseWebpackConfig.entry) {
     conf.inject = 'body';
