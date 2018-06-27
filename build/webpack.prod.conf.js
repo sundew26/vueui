@@ -114,7 +114,7 @@ pages.forEach(function(pathname) {
   };
   if (pathname in baseWebpackConfig.entry) {
     conf.inject = 'body';
-    conf.chunks = ['vendor', pathname];
+    conf.chunks = ['manifest', 'vendor', pathname];
     conf.hash = true;
   }
   webpackConfig.plugins.push(new HtmlWebpackPlugin(conf));
