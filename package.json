@@ -1,9 +1,8 @@
 {
-  "name": "vueui",
+  "name": "mobile-vue-ui",
   "version": "1.0.0",
   "description": "vue component",
   "author": "luwei <hdpu_weilu_0791@163.com>",
-  "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",

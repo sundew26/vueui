@@ -2,8 +2,26 @@
 #### 微信扫码体验：
 ![vue组件扫码体验](https://raw.githubusercontent.com/stardew516/vueui/master/src/static/img/%E6%95%88%E6%9E%9C%E6%BC%94%E7%A4%BA.png)
 
-# vueui
 
+#### 包含功能： 
+1. 输入框组件  
+2. cell组件  
+3. loading组件  
+4. 弹窗组件  
+5. tabbar组件  
+6. toast组件  
+7. button组件  
+8. page分页组件  
+9. switch开关  
+10. folder折叠面板  
+11. progressBar进度条组件  
+12. 加减计数器  
+13. 步骤条  
+
+# tinny-vue-ui
+
+
+备注：示例只展示使用以及基本效果  有些手机可能展示拥挤  
 > vue component
 
 ## Build Setup
