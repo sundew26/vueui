@@ -1,16 +1,16 @@
 <template>
   <div class="content">
     <p>标准</p>
-    <cell :icon-pic="cell[0].pic" :text-content="cell[0].content" :link="cell[0].link" :first="first"></cell>
-    <cell :icon-pic="cell[1].pic" :text-content="cell[1].content" :link="cell[1].link"></cell>
+    <cell :icon-pic="cell[0].pic" :text-content="cell[0].content" :link="cell[0].link" :first="first" @item-tap="transPage"></cell>
+    <cell :icon-pic="cell[1].pic" :text-content="cell[1].content" :link="cell[1].link" @item-tap="transPage"></cell>
     <div class="divder"></div>
     <p>无icon</p>
     <cell :icon-show="cell[2].iconShow" :icon-pic="cell[2].pic" :text-content="cell[2].content" :link="cell[2].link"
-          :first="first"></cell>
+          :first="first" @item-tap="transPage"></cell>
     <div class="divder"></div>
     <p>无箭头</p>
     <cell :right="cell[3].right" :icon-pic="cell[3].pic" :text-content="cell[3].content" :link="cell[3].link"
-          :first="first"></cell>
+          :first="first" @item-tap="transPage"></cell>
   </div>
 </template>
 
@@ -44,6 +44,11 @@
             right: false
           }
         ]
+      }
+    },
+    methods: {
+      transPage (link) {
+        window.location.href = link
       }
     }
   }

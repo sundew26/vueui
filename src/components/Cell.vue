@@ -1,10 +1,10 @@
 <template>
-  <a :href="link" :target="target" class="cell" :class="{'cell-first': !!first}">
+  <div @click="translateToPage(link)" :target="target" class="cell" :class="{'cell-first': !!first}">
     <span v-if="iconShow && iconPic.indexOf('.') < 0" class="cell-icon" :class="iconPic"></span>
     <img v-if="iconShow && iconPic.indexOf('.') >= 0" class="cell-img" :src="iconPic"/>
     <span v-if="textShow" class="cell-text">{{textContent}}</span>
     <span v-if="right" class="cell-right icon-right"></span>
-  </a>
+  </div>
 </template>
 <script>
   export default {
@@ -40,6 +40,12 @@
       right: {  // 是否显示右侧箭头
         type: Boolean,
         default: true
+      }
+    },
+    methods: {
+      translateToPage (link) {
+        console.log(link)
+        this.$emit('item-tap', link)
       }
     }
   }

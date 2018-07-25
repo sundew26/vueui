@@ -4,7 +4,8 @@
     <cell v-for="(item, idx) in cell" :key="item.content" :target="item.target" :icon-pic="item.pic"
           :text-content="item.content"
           :link="item.link"
-          :first="idx===0"></cell>
+          :first="idx===0"
+          @item-tap="transPage"></cell>
   </div>
 </template>
 
@@ -97,6 +98,18 @@
             target: '_blank'
           }
         ]
+      }
+    },
+    methods: {
+      transPage: function (link) {
+        console.log(link)
+        window.location.href = link
+      }
+    },
+    events: {
+      'transPage': function (link) {
+        console.log(link)
+        window.location.href = 'link'
       }
     }
   }
