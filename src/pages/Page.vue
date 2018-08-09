@@ -1,21 +1,39 @@
 <template>
-  <div class="content">
-    <page @change-current="changeCurrent" :page-count="pageCount" :current="current" :page-size="pageSize"
+  <div class="content padding-10">
+    <panel>
+      <div slot="title" class="title">5页</div>
+      <page @change-current="changeCurrent" :page-count="5" :current="current" :page-size="10"
           :page-change="pageChange"></page>
-    <page @change-current="changeCurrent" :page-count="7" :current="current" :page-size="10"
+      
+    </panel>
+
+    <panel>
+      <div slot="title" class="title">7页</div>
+      <page @change-current="changeCurrent" :page-count="7" :current="current" :page-size="10"
           :page-change="pageChange"></page>
-    <page @change-current="changeCurrent" :page-count="10" :current="current" :page-size="10"
+    </panel>
+
+    <panel>
+      <div slot="title" class="title">10页</div>
+      <page @change-current="changeCurrent" :page-count="10" :current="current" :page-size="10"
           :page-change="pageChange"></page>
-    <page @change-current="changeCurrent" :page-count="5" :current="current" :page-size="10"
+    </panel>
+
+    <panel>
+      <div slot="title" class="title">100页</div>
+      <page @change-current="changeCurrent" :page-count="pageCount" :current="current" :page-size="pageSize"
           :page-change="pageChange"></page>
+    </panel>
   </div>
 </template>
 
 <script>
   import Page from '../components/Page.vue'
+  import Panel from '../components/Panel.vue'
   export default {
     components: {
-      Page
+      Page,
+      Panel
     },
     data () {
       return {
@@ -37,9 +55,6 @@
 
 <style scoped>
 @import "../static/common.scss";
-  .content {
-    padding: 20px;
-  }
   button {
     margin: 5px;
     box-sizing: border-box;

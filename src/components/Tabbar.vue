@@ -1,6 +1,6 @@
 <template>
-  <div id="tabbar" class="tabbar">
-    <div class="tabbar-item" v-for="(item, idx) in tabbar"
+  <div id="tabbar" class="tabbar" ref="bar">
+    <div class="tabbar-item" v-for="(item, idx) in tabbar" :key="idx"
          :class="idx===selIdx ? 'selected' : ''"
          :style="{color: idx===selIdx ? tabColor : '', 'border-bottom': idx===selIdx ? bottomHeight + 'px solid' : ''}"
          @click="selectItem(idx)">{{item}}</div>
@@ -38,8 +38,8 @@
         itmW: (100 / this.tabbar.length) + '%'  // 每个人item的宽度
       }
     },
-    created () {
-      const tabW = document.getElementById('tabbar').offsetWidth
+    mounted () {
+      const tabW = this.$refs.bar.offsetWidth
       this.itmW = tabW / this.tabbar.length
     },
     methods: {
@@ -50,23 +50,25 @@
     }
   }
 </script>
-<style scoped>
+<style lang="scss" scoped>
   @import "../static/iconfont.scss";
+  @import "../static/color.scss";
   .tabbar {
     display: flex;
     flex-direction: row;
-    background-color: #fff;
+    background-color: $white;
     position: relative;
+    width: 100%;
   }
   .tabbar-item {
     flex: 1;
     height: 40px;
     line-height: 40px;
-    color: #333;
+    color: $color3;
     text-align: center;
   }
   .tabbar-item.selected {
-    color: #ff9900;
+    color: $success;
     border-bottom: 1px solid;
   }
   .tarbar-bottom {

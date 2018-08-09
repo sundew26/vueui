@@ -34,16 +34,19 @@
     },
     data () {
       return {
-        toastShow: this.show
+        toastShow: this.show,
+        itvl: ''
       }
     },
     methods: {
       autoShowHide () {
+        let that = this
         this.toastShow = this.show
-        setTimeout(function () {
+        clearTimeout(that.itvl)
+        this.itvl = setTimeout(function () {
           this.toastShow = false
           this.$emit('toast-hide')
-        }.bind(this), this.time)
+        }.bind(this), that.time)
       }
     },
     mounted () {

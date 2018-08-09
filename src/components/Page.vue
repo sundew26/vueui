@@ -1,7 +1,7 @@
 <template>
   <div class="page-nav">
     <ul >
-      <li v-for="(item, idx) in pages"
+      <li v-for="(item, idx) in pages" :key="idx"
           v-show="item !== '···' || idx === 1 && pages[idx + 1] > 2  || idx === 7 && pageCount - pages[idx - 1] > 1"
           :class="{ active: current == item, 'no-border': item === '···'}">
         <a @click="clickNav(item)">{{item}}</a>
@@ -100,32 +100,38 @@
   }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
+  @import "../static/color.scss";
+
   .page-nav ul{
     list-style:none;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin: 0;
+    padding: 0;
   }
   .page-nav ul li {
-    min-width: 30px;
-    height: 30px;
+    min-width: 22px;
+    height: 22px;
     margin: 0;
-    border: 1px solid #34A853;
-    color: #34A853;
-    line-height: 30px;
+    border: 1px solid $color9;
+    color: $color6;
+    line-height: 22px;
     text-align: center;
     border-left: 0 none;
+    display: flex;
+    flex-direction: row;
   }
   .page-nav ul li:first-child {
-    border-left:1px solid #34A853;
+    border-left:1px solid $color9;
   }
   .page-nav ul li:last-child {
     padding-left: 10px;
     border: 0 none;
   }
   .page-nav ul li.active {
-    background: #34A853;
+    background: $success;
   }
   .page-nav ul li.active a{
     color: #fff;
@@ -134,27 +140,27 @@
     width: 100%;
     display: block;
     cursor: pointer;
-    color: #34a853;
+    color: $color6;
   }
   .jump {
-    border: 1px solid #34a853;
+    border: 1px solid $color9;
     width: 50px;
-    height: 30px;
-    line-height: 30px;
+    height: 22px;
+    line-height: 22px;
     text-align: center;
     margin: 0 5px;
     box-sizing: border-box;
-    color: #34a853;
+    color: $color6;
   }
   .jump:focus {
-    border: 1px solid #34a853;
+    border: 1px solid $color9;
     outline: none;
   }
   .page-nav span {
     font-size: 12px;
   }
   .no-border {
-    height: 32px!important;
+    height: 24px!important;
     border-top: 0 none!important;
     border-left: 0 none!important;
     border-bottom: 0 none!important;

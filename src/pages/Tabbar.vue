@@ -1,30 +1,39 @@
 <template>
-  <div class="content">
-    <tabbar :tabbar="tabbar" :tab-color="tabColor" :callback="callback"></tabbar>
-    <ul>
-      <li v-for="(item, index) in tabbar" v-show="index===selIdx">{{index}}{{item}}</li>
-    </ul>
+  <div class="content padding-10">
+    <panel>
+      <div slot="title" class="title">四个tab，bar宽度1</div>
+      <tabbar :tabbar="tabbar" :tab-color="tabColor" :callback="callback"></tabbar>
+      <ul>
+        <li v-for="(item, index) in tabbar" :key="index" v-show="index===selIdx">{{index}}{{item}}</li>
+      </ul>
+    </panel>
 
-    <tabbar :tabbar="tabbar1" bottom-height="2" :tab-color="tabColor1" :callback="callback1"></tabbar>
-    <ul>
-      <li v-for="(item, index) in tabbar1" v-show="index===selIdx1">{{index}}{{item}}</li>
-    </ul>
+    <panel>
+      <div slot="title" class="title">两个tab，bar宽度2</div>
+      <tabbar :tabbar="tabbar1" bottom-height="2" :tab-color="tabColor1" :callback="callback1"></tabbar>
+      <ul>
+        <li v-for="(item, index) in tabbar1" :key="index" v-show="index===selIdx1">{{index}}{{item}}</li>
+      </ul>
+    </panel>
+    
   </div>
 </template>
 
 <script>
   import Tabbar from '../components/Tabbar.vue'
+  import Panel from '../components/Panel.vue'
   export default {
     components: {
-      Tabbar
+      Tabbar,
+      Panel
     },
     data () {
       return {
-        tabbar: ['民宿', '餐饮', '农业', '其它'], // tabbar的四个item内容
-        tabColor: 'green',  // 点击状态item的颜色
+        tabbar: ['蓝色妖姬', '彼岸花', '洛神花', '夕颜花'], // tabbar的四个item内容
+        tabColor: '#208A00',  // 点击状态item的颜色
         selIdx: 0,  // 默认选中
-        tabbar1: ['民宿', '餐饮'],
-        tabColor1: '#ff5000',
+        tabbar1: ['六月雪', '凤凰木'],
+        tabColor1: '#F40000',
         selIdx1: 0
       }
     },

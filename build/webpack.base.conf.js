@@ -3,11 +3,11 @@ var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 var entry = require('./getentry')
-var entries_string = 'src/js/*.js';
+var entriesString = 'src/js/*.js'
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
-console.log(entries_string);
-var entries = entry.getEntry(entries_string);
-console.log('entries:', entries);
+console.log(entriesString)
+var entries = entry.getEntry(entriesString)
+console.log('entries:', entries)
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)

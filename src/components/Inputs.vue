@@ -8,7 +8,7 @@
       <textarea v-if="tag==='textarea'" :disabled="disable" class="edit-area h60" :class="{'bd-red': validInfo[0], disabled: disable}"
                 v-model="val"
                 :placeholder="placeholderText" name=""></textarea>
-      <span class="limit-len" :class="{btm10: tag==='textarea'}" v-if="maxlength">{{len}}/{{maxlength}}</span>
+      <span class="limit-len" :class="{btm10: tag==='textarea'}" v-if="maxlength!==99999">{{len}}/{{maxlength}}</span>
     </div>
     <div v-if="visibleError" class="errormsg">{{validInfo[0] && validInfo[0].errormsg}}</div>
   </div>
@@ -34,11 +34,15 @@
       },
       // placeholder
       placeholderText: {
-        type: String
+        type: String,
+        default: '请输入'
       },
       // 正则约束规范
       pattern: {
-        type: Array
+        type: Array,
+        default: function () {
+          return []
+        }
       },
       // 是否是必填
       required: {
@@ -47,7 +51,8 @@
       },
       // 最大长度 不为空时字数限制字段显示
       maxlength: {
-        type: Number
+        type: Number,
+        default: 99999
       },
       // 是否是不可编辑状态
       disable: {
@@ -159,6 +164,7 @@
   }
 </script>
 <style lang="scss" scoped>
+  @import '../static/color.scss';
   .h60 {
     height: 60px!important;
   }
@@ -170,11 +176,16 @@
   }
   .edit-area {
     width: 100%;
-    border: 1px solid #e1e1e1;
+    height: 32px;
+    line-height: 32px;
+    outline: 0;
+    border: 1px solid $border;
     padding: 5px 10px;
     box-sizing: border-box;
+    box-shadow: none;
+    -webkit-appearance: none;
   &:focus {
-     border-color: #5CB975 !important;
+     border-color: $border-active !important;
      outline: none !important;
    }
   }
@@ -182,16 +193,16 @@
     position: absolute;
     right: 5px;
     bottom: 5px;
-    background: #fff;
-    color: #999;
+    background: $white;
+    color: $color9;
     font-size: 12px;
   }
   .errormsg {
-    color: #ee685d;
+    color: $danger;
     font-size: 12px;
     text-align: left;
   }
   .disabled {
-    background-color: #efefef;
+    background-color: $disabled;
   }
 </style>

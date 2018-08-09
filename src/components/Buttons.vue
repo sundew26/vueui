@@ -1,8 +1,7 @@
 <template>
   <button :class="belongs"
-          :style="{width: btnW && (btnW + '').indexOf('%') > 0 ? btnW : btnW + 'px'}"
           :disabled="btnDisable" @click="btnClick()">
-    <i v-if="loading && btnActive" class="icon-btn-loading" :class="{active: btnActive}"></i>{{value}}
+    <i v-if="btnActive" class="iconfont icon-loading" :class="{active: btnActive}"></i>{{value}}
   </button>
 </template>
 <script>
@@ -12,23 +11,17 @@
         type: String,
         default: '按钮'
       },
-      belongs: {  // 样式
+      belongs: {  // 样式 min small btn large
         typy: String,
         default: 'btn'
-      },
-      btnW: { // 宽度: 百分比/数值
-        type: [String, Number]
       },
       disable: {  // 不可用 disabled
         type: Boolean,
         default: false
       },
-      loading: {  // 是否有loading功能
-        type: [Boolean, String],
-        default: false
-      },
       active: { // loading激活
         type: Boolean,
+        twoWay: true,
         default: false
       },
       callback: { // 点击之后的回调函数
@@ -41,7 +34,8 @@
     data () {
       return {
         btnActive: this.active,
-        btnDisable: this.disable
+        btnDisable: this.disable,
+        loading: this.belongs
       }
     },
     watch: {
@@ -57,146 +51,97 @@
         if (this.disable) {
           return
         }
-        var that = this
-        function hideLoad () {
-          if (that.loading) {
-            that.btnActive = false
-          }
-          that.btnDisable = false
-        }
-        this.btnDisable = true
-        if (this.loading) {
+        console.log(this.loading, this.loading.indexOf('btn-loading'))
+        if (this.loading.indexOf('btn-loading') >= 0) {
           this.btnActive = true
         }
-        this.callback(hideLoad)
+        let that = this
+        this.callback(
+          function () {
+            that.btnActive = false
+          }
+        )
       }
     }
   }
 </script>
-<style scoped>
+<style lang="scss" scoped>
   @import "../static/iconfont.scss";
-  /***按钮样式   start  ***/
-  [class^="btn-"],
+  @import "../static/color.scss";
+  
   .btn {
-    display: inline-block;
-    width: 120px;
-    height: 40px;
+    height: 44px;
     font-size: 14px;
     outline: none;
-    line-height: 30px;
+    line-height: 42px;
     box-sizing: border-box;
     text-align: center;
-    color: #666;
+    color: $white;
     cursor: pointer;
-    background-color: #F5F5F5;
-    border: 1px solid #E1E1E1;
+    background-color: $info;
+    // border: 1px solid $white;
+    border: 0 none;
+    display: block;
+    width: 100%;
   }
-  /*normal 次按钮*/
+  .btn-min {
+    display: inline-block;
+    height: 22px;
+    line-height: 20px;
+    width: auto;
+  }
 
-  /*普通主按钮*/
-  [class^="btn-primary"],
-  .btn-primary {
-    color: white;
-    background-color: #34A853;
-    border: none;
+  .btn-small {
+    display: inline-block;
+    height: 32px;
+    line-height: 30px;
+    width: auto;
   }
 
-  /* 普通幽灵按钮, 幽灵按钮就是没有背景的按钮 */
-  [class^="btn-ghost"],
-  .btn-ghost {
-    background-color: transparent;
+  .btn-large {
+    height: 50px;
+    line-height: 48px;
   }
-  /*普通查看更多按钮*/
-  [class^="btn-more"],
-  .btn-more {
-    padding: 1px 0;
-    border: none;
-    background-color: white;
+
+  .btn-success {
+    color: $white;
+    background-color: $success;
   }
-  /*disabled的按钮*/
-  [class^="btn-disable"],
-  .btn-disable {
-    padding: 1px 0;
-    border: none;
-    background-color: #ddd;
-    cursor: not-allowed;
-  }
-  /*delete的按钮*/
-  [class^="btn-delete"],
-  .btn-delete {
-    padding: 1px 0;
-    border: none;
-    background-color: #E64340;
-    color: #fff;
-  }
-  /*warn的按钮*/
-  [class^="btn-warn"],
+
   .btn-warn {
-    padding: 1px 0;
-    border: none;
-    background-color: #ff9900;
-    color: #fff;
-  }
-  /*次按钮 ，幽灵按钮，更多按钮的hover状态*/
-  [class^="btn"]:hover,
-  .btn:hover,
-  .btn-more:hover,
-  .btn-ghost:hover{
-    color: #5CB975;
-    border-color: #5CB975;
-  }
-  .btn:hover{
-    background-color: white;
-  }
-  [class^="btn-primary"]:hover,
-  .btn-primary:hover{
-    color: white;
-    background-color: #5CB975;
-  }
-  [class^="btn-disable"]:hover,
-  .btn-disable:hover {
-    color: #666;
-    background-color: #ddd;
-  }
-  [class^="btn-delete"]:hover,
-  .btn-delete:hover {
-    color: #fff;
-    background-color: #e66d72;
-  }
-  [class^="btn-warn"]:hover,
-  .btn-warn:hover {
-    color: #fff;
-    background-color: #ffb435;
-  }
-  .btn-primary .click,
-  .btn-primary .disable,
-  .btn-ghost .click,
-  .btn-ghost .disable,
-  .btn-more .click,
-  .btn-more .disable,
-  .btn-input,
-  .btn-input:hover{
+    color: $yellow-orange;
+    background-color: $warn;
   }
 
-  /***按钮样式   end  ***/
-  .radius {
-    border-radius: 10px;
+  .btn-danger {
+    color: $white;
+    background-color: $danger;
   }
-  .radius20 {
-    border-radius: 20px;
+
+  .btn-empty {
+    color: $color6;
+    background-color: $white;
+    border: 1px solid $border;
   }
+
   .active {
     display: inline-block;
-    animation: rotates 1.2s steps(12, end) infinite;
+    animation: rotates 1.2s linear;
+    animation-iteration-count: infinite;
+    width: 14px;
+    height: 14px;
+    &.iconfont {
+      margin-right: 5px;
+    }
   }
   @keyframes rotates {
     0% {
-      -webkit-transform: rotate3d(0, 0, 1, 0deg);
-      transform: rotate3d(0, 0, 1, 0deg);
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
     }
     100% {
-      -webkit-transform: rotate3d(0, 0, 1, 360deg);
-      transform: rotate3d(0, 0, 1, 360deg);
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
     }
   }
 </style>

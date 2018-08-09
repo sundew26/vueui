@@ -1,9 +1,10 @@
 <template>
   <div @click="translateToPage(link)" :target="target" class="cell" :class="{'cell-first': !!first}">
-    <span v-if="iconShow && iconPic.indexOf('.') < 0" class="cell-icon" :class="iconPic"></span>
-    <img v-if="iconShow && iconPic.indexOf('.') >= 0" class="cell-img" :src="iconPic"/>
-    <span v-if="textShow" class="cell-text">{{textContent}}</span>
-    <span v-if="right" class="cell-right icon-right"></span>
+    <span v-if="iconPic && iconPic.indexOf('.') < 0" class="cell-icon" :class="iconPic"></span>
+    <img v-if="iconPic && iconPic.indexOf('.') >= 0" class="cell-img" :src="iconPic"/>
+    <span v-if="textContent" class="cell-text">{{textContent}}</span>
+    <span v-if="addText" class="add-text">{{addText}}</span>
+    <span v-if="link" class="cell-right icon-right"></span>
   </div>
 </template>
 <script>
@@ -15,31 +16,23 @@
       },
       link: { // 跳转链接
         type: String,
-        default: '#'
+        default: ''
       },
       target: { // _blank  新窗口  默认当前页打开
         type: String,
         default: ''
       },
-      iconShow: { // 是否显示icon
-        type: Boolean,
-        default: true
-      },
       iconPic: {  // icon地址
         type: String,
         default: ''
-      },
-      textShow: { // 是否显示内容
-        type: Boolean,
-        default: true
       },
       textContent: {  // 内容
         type: String,
         default: ''
       },
-      right: {  // 是否显示右侧箭头
-        type: Boolean,
-        default: true
+      addText: {  // 是否显示附加内容
+        type: String,
+        default: ''
       }
     },
     methods: {
@@ -50,21 +43,22 @@
     }
   }
 </script>
-<style scoped>
+<style lang="scss" scoped>
   @import "../static/iconfont.scss";
+  @import "../static/color.scss";
   .cell {
     display: flex;
-    background-color: #fff;
+    background-color: $white;
     height: 40px;
     box-sizing: border-box;
     padding: 10px;
     line-height: 20px;
-    color: #333;
-    border-bottom: 1px solid #ddd;
+    color: $color3;
+    border-bottom: 1px solid $border;
     text-decoration: none;
   }
   .cell-first {
-    border-top: 1px solid #ddd;
+    border-top: 1px solid $border;
   }
   .cell-icon {
     width: 20px;
@@ -90,6 +84,6 @@
     display: inline-block;
     width: 20px;
     height: 20px;
-    color: #999;
+    color: $color9;
   }
 </style>

@@ -22,79 +22,121 @@
           {
             link: '../demo/inputs.html',
             pic: 'icon-inputs',
-            content: '输入框组件',
+            content: 'Input 输入框',
             target: '_blank'
           },
           {
             link: '../demo/cell.html',
             pic: 'icon-cell',
-            content: 'cell组件',
+            content: 'Cell 列表',
             target: '_blank'
           },
           {
-            link: '../demo/loading.html',
-            pic: 'icon-loading',
-            content: 'loading组件',
+            link: '../demo/dialog.html',
+            pic: 'icon-dialog',
+            content: 'Dialog 弹窗',
             target: '_blank'
           },
           {
             link: '../demo/popups.html',
             pic: 'icon-popups',
-            content: '弹窗组件',
+            content: 'PopUps 弹出层',
             target: '_blank'
           },
           {
             link: '../demo/tabbar.html',
             pic: 'icon-tabbar',
-            content: 'tabbar组件',
+            content: 'Tabbar 标签',
             target: '_blank'
           },
           {
             link: '../demo/toast.html',
             pic: 'icon-toast',
-            content: 'toast组件',
+            content: 'Toast 提示框',
             target: '_blank'
           },
           {
             link: '../demo/buttons.html',
             pic: 'icon-buttons',
-            content: 'button组件',
+            content: 'Button 按钮',
             target: '_blank'
           },
           {
             link: '../demo/page.html',
             pic: 'icon-page',
-            content: 'page分页组件',
+            content: 'Page 分页',
             target: '_blank'
           },
           {
             link: '../demo/switchs.html',
             pic: 'icon-switchs',
-            content: 'switch开关',
+            content: 'Switch 开关',
             target: '_blank'
           },
           {
             link: '../demo/folder.html',
             pic: 'icon-folder',
-            content: 'folder折叠面板',
+            content: 'Folder 折叠面板',
             target: '_blank'
           },
           {
             link: '../demo/progressBar.html',
             pic: 'icon-progress',
-            content: 'progressBar进度条组件',
+            content: 'ProgressBar 进度条',
             target: '_blank'
           },
           {
             link: '../demo/inputNum.html',
             pic: 'icon-inputNum',
-            content: '加减计数器',
+            content: 'InputNum 计数器',
             target: '_blank'
           },
           {
             link: '../demo/stepbar.html',
             pic: 'icon-step',
-            content: '步骤条',
+            content: 'Stepbar 步骤条',
+            target: '_blank'
+          },
+          {
+            link: '../demo/actionsheet.html',
+            pic: 'icon-actionsheet',
+            content: 'ActionSheet 操作盘',
+            target: '_blank'
+          },
+          {
+            link: '../demo/grid.html',
+            pic: 'icon-grid',
+            content: 'Grid 宫格',
+            target: '_blank'
+          },
+          {
+            link: '../demo/icon.html',
+            pic: 'icon-icon',
+            content: 'Icon 图标',
+            target: '_blank'
+          },
+          {
+            link: '../demo/layout.html',
+            pic: 'icon-layout',
+            content: 'Layout 布局',
+            target: '_blank'
+          },
+          {
+            link: '../demo/loadmore.html',
+            pic: 'icon-loadmore',
+            content: 'Loadmore 加载更多',
+            target: '_blank'
+          },
+          {
+            link: '../demo/panel.html',
+            pic: 'icon-panel',
+            content: 'Panel 面板',
+            target: '_blank'
+          },
+          {
+            link: '../demo/tag.html',
+            pic: 'icon-tag',
+            content: 'Tag 标记',
             target: '_blank'
           }
         ]

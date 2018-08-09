@@ -1,12 +1,12 @@
 <template>
-  <div class="progress-bar-outer" :style="{width: pW==='100%'?'100%' : ''}">
+  <div class="progress-bar-outer">
+    <i v-if="pType==='liner'" :class="position" :style="{'margin-left': Number(percentage) === 0 && position==='inner' ? 0 : position==='inner' ?  (Number(percentage) - 40 + 'px') :''}">{{percentage +'%'}}</i>
     <div v-if="pType==='liner'" class="progress-bar bg-gray"
-      :style="{height: pH + 'px', width: (pW + '').indexOf('%') > -1 ? pW : (pW + 'px'), 'border-radius': Number(pH)/2 + 'px'}">
+      :style="{height: pH + 'px', 'border-radius': Number(pH)/2 + 'px'}">
       <span class="progress-inner"
         :class="Number(percentage) <= 0 ? '' : Number(percentage) < 50 ? 'bg-red' : Number(percentage) === 50 ? 'bg-yellow' : Number(percentage) < 100 ? 'bg-blue' : 'bg-green'"
-        :style="{width: (pW + '').indexOf('%') > -1 ? (Number(pW.split('%')[0]) * Number(percentage) / 100 + '%') : (Number(pW) * Number(percentage) / 100 + 'px'), 'border-radius': Number(pH)/2 + 'px'}">
+        :style="{width: Number(percentage)+'%', 'border-radius': Number(pH)/2 + 'px'}">
       </span>
-      <i :class="position" :style="{'margin-left': Number(percentage) === 0 && position==='inner' ? 0 : position==='inner' ?  (pW + '').indexOf('%') > -1 ? 'calc(' + (Number(pW.split('%')[0]) * Number(percentage) / 100 + '%') + ' - 40px)' : (Number(pW) * Number(percentage) / 100 - 40 + 'px') :''}">{{percentage +'%'}}</i>
     </div>
     <div v-if="pType==='circle'" class="progress-circle">
       <i class="circle-text">{{percentage + '%'}}</i>
@@ -35,13 +35,9 @@
         type: String,
         default: 'liner'
       },
-      pW: { // 宽度: 百分比/数值
-        type: [String, Number],
-        default: 300
-      },
       pH: {  // 高度
         type: [String, Number],
-        default: 20
+        default: 12
       },
       position: {  // 数值在进度条的位置  top inner bottom left right hide(不展示)
         type: String,
@@ -66,17 +62,25 @@
     }
   }
 </script>
-<style scoped>
+<style lang="scss" scoped>
   @import "../static/iconfont.scss";
+  @import "../static/color.scss";
   i {
     font-style: normal;
   }
   .progress-bar {
     position: relative;
     text-align: left;
+    overflow: hidden;
+    width: 80%;
   }
   .bg-gray {
-    background-color: #e6e6e6;
+    background-color: $border;
+  }
+  .progress-bar-outer {
+    display: flex;
+    justify-content: center;
+    position: relative;
   }
   .progress-inner {
     display: inline-block;
@@ -86,60 +90,69 @@
     top: 0;
     position: absolute;
   }
-  .progress-bar i {
-    color: #fff;
+  .progress-bar-outer i {
     font-size: 12px;
-    line-height: 20px;
     position: absolute;
     vertical-align: middle;
     width: 32px;
+    z-index: 9;
   }
-  .progress-bar .top {
+  .progress-bar-outer .top {
     top: -20px;
-    color: #333;
+    color: $color3;
     left: 50%;
     margin-left: -16px;
     text-align: center;
   }
-  .progress-bar .inner {
-    margin-left: -40px;
-    top: 50%;
-    margin-top: -10px;
-    text-align: right;
+  .progress-bar-outer .inner {
+    width: 100%;
+    text-align: center;
+    left: 0;
+    top: 0;
+    margin: 0 !important;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  .progress-bar .bottom {
+  .progress-bar-outer .bottom {
     bottom: -20px;
-    color: #333;
+    color: $color3;
     left: 50%;
     margin-left: -16px;
   }
-  .progress-bar .left {
-    left: -36px;
+  .progress-bar-outer .left {
+    left: 0;
     color: #333;
     text-align: right;
     box-sizing: border-box;
     top: 50%;
     margin-top: -10px;
+    width: 10%;
+    padding-right: 5px;
   }
-  .progress-bar .right {
-    right: -36px;
+  .progress-bar-outer .right {
+    right: 0;
     color: #333;
     text-align: left;
     box-sizing: border-box;
     top: 50%;
     margin-top: -10px;
+    width: 10%;
+    padding-left: 5px;
   }
   .bg-red {
-    background-color: red;
+    background-color: $red;
   }
   .bg-yellow {
-    background-color: yellow;
+    background-color: $yellow;
   }
   .bg-blue {
-    background-color: blue;
+    background-color:$blue;
   }
   .bg-green {
-    background-color: green;
+    background-color: $green;
   }
 
   circle {
@@ -148,6 +161,7 @@
   }
   .progress-circle {
     position: relative;
+    display: inline-block;
   }
   .progress-circle i {
     position: absolute;

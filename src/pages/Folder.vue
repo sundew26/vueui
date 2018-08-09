@@ -1,37 +1,42 @@
 <template>
-  <div class="content">
+  <div class="content padding-10">
     <div class="common">
-      <p>普通折叠</p>
-      <folder>
-        <folder-item v-for="(item, idx) in common" :key="idx" :title="item.title">
-          <div slot="content">
-            <p v-for="para in item.content">{{para}}</p>
-          </div>
-        </folder-item>
-      </folder>
+      <panel>
+        <div slot="title" class="title">普通折叠</div>
+        <folder>
+          <folder-item v-for="(item, idx) in common" :key="idx" :title="item.title">
+            <div slot="content">
+              <p v-for="(para, index) in item.content" :key="index">{{para}}</p>
+            </div>
+          </folder-item>
+        </folder>
+      </panel>
+      
     </div>
-    <div class="accordion">
-      <p>手风琴折叠</p>
-      <folder accordion="true" @folder-accordion="folderAccordion">
-        <folder-item v-for="(item, idx) in accordion" :key="idx"
-                     :unfolder="idx===selIdx?unfolder:!unfolder"
-                     :title="item.title">
-          <div slot="content">
-            <p v-for="para in item.content">{{para}}</p>
-          </div>
-        </folder-item>
-      </folder>
-    </div>
+    <panel>
+        <div slot="title" class="title">手风琴折叠</div>
+        <folder accordion="true" @folder-accordion="folderAccordion">
+          <folder-item v-for="(item, idx) in accordion" :key="idx"
+                      :unfolder="idx===selIdx?unfolder:!unfolder"
+                      :title="item.title">
+            <div slot="content">
+              <p v-for="(para,index) in item.content" :key="index">{{para}}</p>
+            </div>
+          </folder-item>
+        </folder>
+      </panel>
   </div>
 </template>
 
 <script>
   import Folder from '../components/Folder.vue'
   import FolderItem from '../components/FolderItem.vue'
+  import Panel from '../components/Panel.vue'
   export default {
     components: {
       Folder,
-      FolderItem
+      FolderItem,
+      Panel
     },
     methods: {
       folderAccordion: function (now) {
@@ -133,10 +138,4 @@
 
 <style scoped>
 @import "../static/common.scss";
-  .content {
-    padding: 20px;
-  }
-  .inner-content p {
-    text-indent: 2rem;
-  }
 </style>

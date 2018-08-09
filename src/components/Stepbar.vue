@@ -1,9 +1,9 @@
 <template>
   <div class="stepbar">
-    <div class="stepbar-list" v-for="(item, idx) in steps.content">
+    <div class="stepbar-list" v-for="(item, idx) in steps.content" :key="idx">
       <div class="stepbar-el" :class="{on: idx<=steps.stepto}">
         <div class="stepbar-texts">
-          <p class="stepbar-text" v-for="txt in item.text">{{txt}}</p>
+          <p class="stepbar-text" v-for="(txt, index) in item.text" :key="index">{{txt}}</p>
         </div>
         <div class="stepbar-steps">
           <span class="stepbar-line" :class="{'nobar': idx===0}"></span>
@@ -26,13 +26,13 @@
     }
   }
 </script>
-<style scoped>
+<style lang="scss" scoped>
   @import "../static/iconfont.scss";
+  @import "../static/color.scss";
   .stepbar {
     font-size: 12px;
     width: 100%;
     display: flex;
-    padding: 20px;
     box-sizing: border-box;
   }
   .stepbar-list {
@@ -46,21 +46,21 @@
     display: inline-block;
     flex: 1;
     height: 2px;
-    background-color: #939393;
+    background-color: $gray;
     margin-right: -2px;
   }
   .icon-step {
-    color: #939393;
+    color: $gray;
     margin-right: -2px;
   }
   .stepbar-el {
 
   }
   .stepbar-el.on .stepbar-line {
-    background-color: #459945;
+    background-color: $success;
   }
   .stepbar-el.on .icon-step, .stepbar-el.on .stepbar-text {
-    color: #459945;
+    color: $success;
   }
   .nobar {
     background-color: transparent!important;
@@ -68,6 +68,8 @@
   .stepbar-text {
     font-size: 12px;
     margin: 0;
-    line-height: 24px;
+    line-height: 14px;
+    text-align: center;
+    padding: 5px 0;
   }
 </style>
