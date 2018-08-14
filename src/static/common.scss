@@ -7,6 +7,17 @@ html, body {
   padding: 0;
   background-color: $bg;
 }
+button {
+    outline: none;
+    border: 0 none;
+}
+input {
+    border: 1px solid $border;
+    outline: none;
+    &:focus {
+        border-color: $success;
+    }
+}
 .clearfix {
   zoom: 1;
 }
@@ -198,3 +209,79 @@ html, body {
       margin-left: 95.83333333%;
   }
 }
+
+.btn {
+    height: 44px;
+    font-size: 14px;
+    outline: none;
+    line-height: 42px;
+    box-sizing: border-box;
+    text-align: center;
+    color: $white;
+    cursor: pointer;
+    background-color: $info;
+    // border: 1px solid $white;
+    border: 0 none;
+    display: block;
+    width: 100%;
+  }
+  .btn-min {
+    display: inline-block;
+    height: 22px;
+    line-height: 20px;
+    width: auto;
+  }
+
+  .btn-small {
+    display: inline-block;
+    height: 32px;
+    line-height: 30px;
+    width: auto;
+  }
+
+  .btn-large {
+    height: 50px;
+    line-height: 48px;
+  }
+
+  .btn-success {
+    color: $white;
+    background-color: $success;
+  }
+
+  .btn-warn {
+    color: $yellow-orange;
+    background-color: $warn;
+  }
+
+  .btn-danger {
+    color: $white;
+    background-color: $danger;
+  }
+
+  .btn-empty {
+    color: $color6;
+    background-color: $white;
+    border: 1px solid $border;
+  }
+
+  .btn.active {
+    display: inline-block;
+    animation: rotates 1.2s linear;
+    animation-iteration-count: infinite;
+    width: 14px;
+    height: 14px;
+    &.iconfont {
+      margin-right: 5px;
+    }
+  }
+  @keyframes rotates {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }

@@ -138,6 +138,30 @@
             pic: 'icon-tag',
             content: 'Tag 标记',
             target: '_blank'
+          },
+          {
+            link: '../demo/noticebar.html',
+            pic: 'icon-notice',
+            content: 'NoticeBar通知条',
+            target: '_blank'
+          },
+          {
+            link: '../demo/rate.html',
+            pic: 'icon-rate',
+            content: 'Rate 星级条',
+            target: '_blank'
+          },
+          {
+            link: '../demo/searchbar.html',
+            pic: 'icon-search',
+            content: 'SearchBar 搜索条',
+            target: '_blank'
+          },
+          {
+            link: '../demo/toptips.html',
+            pic: 'icon-toptips',
+            content: 'Toptips 提示条',
+            target: '_blank'
           }
         ]
       }
