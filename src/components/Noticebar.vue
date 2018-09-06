@@ -1,7 +1,7 @@
 <template>
-  <div class="noticebar">
+  <div class="noticebar" ref="noticebar">
     <div class="icon"></div>
-    <div class="scoller">
+    <div class="scoller" ref="scroller">
       <slot></slot>
     </div>
   </div>
@@ -12,21 +12,59 @@
     },
     data () {
       return {
+        itvl: '' // 定时器
       }
     },
     watch: {
     },
     methods: {
+    },
+    mounted () {
+      const scrollerInner = this.$refs.scroller
+      const scrollerInnerWidth = scrollerInner.offsetWidth
+      const barWidth = this.$refs.noticebar.offsetWidth
+      if (scrollerInnerWidth > barWidth) {
+        const v = 60
+        const scrollWidth = scrollerInnerWidth + barWidth
+        let left = barWidth
+        let time = scrollWidth / v
+        scrollerInner.style.left = left + 'px'
+        scrollerInner.style.transition = 'transform ' + time + 's linear 0s'
+        scrollerInner.style.transform = 'translateX(-' + scrollWidth + 'px)'
+        console.log(scrollWidth, time)
+        clearInterval(this.itvl)
+        this.itvl = setInterval(() => {
+          this.$nextTick(() => {
+            scrollerInner.style.transition = ''
+            scrollerInner.style.transform = ''
+            this.$nextTick(() => {
+              setTimeout(() => {
+                scrollerInner.style.transition = 'transform ' + time + 's linear 0s'
+                scrollerInner.style.transform = 'translateX(-' + scrollWidth + 'px)'
+              }, 1)
+            })
+          })
+        }, time * 1000)
+      }
     }
   }
 </script>
 <style lang="scss" scoped>
   @import "../static/iconfont.scss";
-  .scoller {
+  .noticebar {
     width: 100%;
+    min-height: 30px;
+    box-sizing: border-box;
+    position: relative;
+  }
+  .scoller {
     line-height: 30px;
     height: 30px;
-    overflow: hidden;
-    position: relative;
+    white-space: nowrap;
+    position: absolute;
+    left: 0;
+    top: 0;
+    // transition: all linear 3s;
+    // -webkit-transition: all linear 3s;
   }
 </style>

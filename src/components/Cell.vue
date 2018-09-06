@@ -4,7 +4,7 @@
     <img v-if="iconPic && iconPic.indexOf('.') >= 0" class="cell-img" :src="iconPic"/>
     <span v-if="textContent" class="cell-text">{{textContent}}</span>
     <span v-if="addText" class="add-text">{{addText}}</span>
-    <span v-if="link" class="cell-right icon-right"></span>
+    <span v-if="link" class="cell-right icon-arrow"></span>
   </div>
 </template>
 <script>
