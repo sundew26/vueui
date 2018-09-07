@@ -1,5 +1,5 @@
 <template>
-  <div class="content padding-10">
+  <div class="content">
     <panel>
       <div slot="title" class="title">默认</div>
       <input-item
@@ -148,6 +148,6 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import '../static/common.scss';
 </style>

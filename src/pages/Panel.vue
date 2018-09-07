@@ -1,19 +1,20 @@
 <template>
   <div class="content">
-    <panel class="padding-10">
-      <div>默认</div>
+    <panel>
+      <div slot="title" class="title">默认</div>
+      <div class="panel-text">默认</div>
     </panel>
-    <panel class="padding-10">
+    <panel>
       <div slot="title" class="title">有标题</div>
-      <div>有标题的panel</div>
+      <div class="panel-text">有标题的panel</div>
     </panel>
-    <panel border="1px" class="padding-10">
+    <panel border="1px">
       <div slot="title" class="title">有边框</div>
-      <div>有边框的panel</div>
+      <div class="panel-text">有边框的panel</div>
     </panel>
-    <panel border="1px 0 1px 0" class="padding-10">
+    <panel border="1px 0 1px 0">
       <div slot="title" class="title">边框自定义</div>
-      <div>边框为1px 0 1px 0</div>
+      <div class="panel-text">边框为1px 0 1px 0</div>
     </panel>
   </div>
 </template>
@@ -33,7 +34,10 @@
   }
 </script>
 
-<style scoped>
-@import "../static/common.scss";
-  
+<style lang="scss">
+  @import "../static/common.scss";
+  .panel-text {
+    line-height: 28px;
+    padding: 0 10px;
+  }
 </style>

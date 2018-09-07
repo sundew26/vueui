@@ -1,9 +1,9 @@
 <template>
   <div class="content">
-    <input type="button" @click="showDialog('80%', '40%')" value="大">
-    <input type="button" @click="showDialog('60%')" value="中">
-    <input type="button" @click="showDialog('40%', 200)" value="小">
-    <input type="button" @click="showDialog('60%', 200, true)" value="不显示叉叉">
+    <input type="button" class="btn" @click="showDialog('80%', '')" value="宽度80% 高度自适应">
+    <input type="button" class="btn" @click="showDialog('70%', 300)" value="宽度70% 高度300px">
+    <input type="button" class="btn" @click="showDialog('65%', '')" value="宽度65%">
+    <input type="button" class="btn" @click="showDialog('80%', '', true)" value="不显示叉叉">
     <Dialog
       :dialog-option.sync="dialogOption"
       :btn-confirm-callback="modalConfirm"
@@ -31,7 +31,7 @@
       return {
         dialogOption: {
           show: true,
-          width: 400, // width,height 可以数值 可以百分比
+          width: 300, // width,height 可以数值 可以百分比
           showClose: true,
           btnAlign: 'right',  // right:按钮靠右 center: 居中(默认)  left: 靠左
           btnConfirm: {
@@ -66,6 +66,9 @@
   }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  @import "../static/common.scss";
+  .btn {
+    margin-top: 10px;
+  }
 </style>

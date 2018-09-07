@@ -56,9 +56,6 @@
   }
 </script>
 
-<style scoped>
-@import "../static/common.scss";
-  .content {
-    padding: 20px;
-  }
+<style lang="scss">
+  @import "../static/common.scss";
 </style>

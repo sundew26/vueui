@@ -30,9 +30,8 @@
     width: 100%;
     box-sizing: border-box;
     text-align: left;
-    margin-top: 10rpx;
     .title {
-      padding: 20rpx;
+      padding: 10px;
       font-size: 12px;
     }
     .info {
@@ -42,7 +41,6 @@
       font-size: 12px;
       background-color: #fff;
       display: block;
-      padding: 10px;
     }
   }
 </style>

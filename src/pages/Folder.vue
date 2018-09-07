@@ -1,5 +1,5 @@
 <template>
-  <div class="content padding-10">
+  <div class="content">
     <div class="common">
       <panel>
         <div slot="title" class="title">普通折叠</div>
@@ -136,6 +136,6 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss">
 @import "../static/common.scss";
 </style>

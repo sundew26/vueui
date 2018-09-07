@@ -1,5 +1,5 @@
 <template>
-  <div class="content padding-10">
+  <div class="content">
     <panel>
       <div slot="title" class="title">微型按钮</div>
       <btn value="btn-min" belongs="btn btn-min" :callback="callback"></btn>
@@ -76,9 +76,6 @@
 
 <style scoped>
 @import "../static/common.scss";
-  .content {
-    padding: 20px;
-  }
   button {
     margin: 5px;
     box-sizing: border-box;

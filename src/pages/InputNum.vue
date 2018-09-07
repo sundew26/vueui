@@ -1,5 +1,5 @@
 <template>
-  <div class="content padding-10">
+  <div class="content">
     <panel>
       <div slot="title" class="title">默认</div>
       <input-num></input-num>
@@ -53,11 +53,8 @@
   }
 </script>
 
-<style scoped>
-@import "../static/common.scss";
-  .content {
-    margin: 20px 0;
-  }
+<style lang="scss">
+  @import "../static/common.scss";
   .divder {
     margin: 20px;
   }

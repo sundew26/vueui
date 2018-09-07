@@ -34,13 +34,14 @@
   .loadmore {
     font-size: 12px;
     margin-bottom: 20px;
-    color:#aaa;
+    color: #aaa;
     position: relative;
     width: 65%;
-    margin: 21px auto;
+    margin: 0 auto;
     line-height: 20px;
     text-align: center;
     vertical-align: middle;
+    padding: 21px 0;
     .icon-loading {
       display:inline-block;
       animation: icon-spin 2s linear;

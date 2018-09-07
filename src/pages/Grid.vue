@@ -1,51 +1,49 @@
 <template>
   <div class="content">
-    <div class="kai-content">
-      <panel class="no-padding">
-        <div slot="title" class="title">16宫格</div>
-        <div class="panel">
-          <grid :rows="rows4" :cols="cols4">
-            <div v-for="(item, index) in gridlist4" :key="index" class="grid-items" :class="item.class">
-              <icon :type="item.icon"></icon>
-              <div class="">{{item.text}}</div>
-            </div>
-          </grid>
-        </div>
-      </panel>
-      <panel class="no-padding">
-        <div slot="title" class="title">9宫格</div>
-        <div class="panel">
-          <grid :rows="rows3" :cols="cols3">
-            <div v-for="(item, index) in gridlist3" :key="index" class="grid-items" :class="item.class">
-              <icon :type="item.icon"></icon>
-              <div class="">{{item.text}}</div>
-            </div>
-          </grid>
-        </div>
-      </panel>
-      <panel class="no-padding">
-        <div slot="title" class="title">4宫格</div>
-        <div class="panel">
-          <grid :rows="rows2" :cols="cols2">
-            <div v-for="(item, index) in gridlist2" :key="index" class="grid-items" :class="item.class">
-              <icon :type="item.icon"></icon>
-              <div class="">{{item.text}}</div>
-            </div>
-          </grid>
-        </div>
-      </panel>
-      <panel class="no-padding">
-        <div slot="title" class="title">1宫格</div>
-        <div class="panel">
-          <grid :rows="rows1" :cols="cols1">
-            <div v-for="(item, index) in gridlist1" :key="index" class="grid-items" :class="item.class">
-              <icon :type="item.icon"></icon>
-              <div class="">{{item.text}}</div>
-            </div>
-          </grid>
-        </div>
-      </panel>
-    </div>
+    <panel class="no-padding">
+      <div slot="title" class="title">16宫格</div>
+      <div class="panel">
+        <grid :rows="rows4" :cols="cols4">
+          <div v-for="(item, index) in gridlist4" :key="index" class="grid-items" :class="item.class">
+            <icon :type="item.icon"></icon>
+            <div class="">{{item.text}}</div>
+          </div>
+        </grid>
+      </div>
+    </panel>
+    <panel class="no-padding">
+      <div slot="title" class="title">9宫格</div>
+      <div class="panel">
+        <grid :rows="rows3" :cols="cols3">
+          <div v-for="(item, index) in gridlist3" :key="index" class="grid-items" :class="item.class">
+            <icon :type="item.icon"></icon>
+            <div class="">{{item.text}}</div>
+          </div>
+        </grid>
+      </div>
+    </panel>
+    <panel class="no-padding">
+      <div slot="title" class="title">4宫格</div>
+      <div class="panel">
+        <grid :rows="rows2" :cols="cols2">
+          <div v-for="(item, index) in gridlist2" :key="index" class="grid-items" :class="item.class">
+            <icon :type="item.icon"></icon>
+            <div class="">{{item.text}}</div>
+          </div>
+        </grid>
+      </div>
+    </panel>
+    <panel class="no-padding">
+      <div slot="title" class="title">1宫格</div>
+      <div class="panel">
+        <grid :rows="rows1" :cols="cols1">
+          <div v-for="(item, index) in gridlist1" :key="index" class="grid-items" :class="item.class">
+            <icon :type="item.icon"></icon>
+            <div class="">{{item.text}}</div>
+          </div>
+        </grid>
+      </div>
+    </panel>
   </div>
 </template>
 
@@ -171,7 +169,7 @@
   
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import "../static/common.scss";
   @import "../static/iconfont.scss";
   .grid-outer {

@@ -1,5 +1,5 @@
 <template>
-  <div class="content padding-10">
+  <div class="content">
     <panel>
       <div slot="title" class="title">默认</div>
       <cell :first="first" :text-content="cell[0].content"></cell>

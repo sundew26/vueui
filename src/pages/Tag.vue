@@ -1,5 +1,5 @@
 <template>
-  <div class="content padding-10">
+  <div class="content">
     <panel>
       <div slot="title" class="title">小标记</div>
       <div class="list list-last-child">
@@ -77,8 +77,8 @@
   }
 </script>
 
-<style lang="scss" scoped>
-@import "../static/common.scss";
+<style lang="scss">
+  @import "../static/common.scss";
   .tag{
     margin: 10px;
   }
