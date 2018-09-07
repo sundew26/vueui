@@ -12,7 +12,8 @@
     },
     data () {
       return {
-        itvl: '' // 定时器
+        itvl: '', // 定时器
+        tm: '' // timeout定时器
       }
     },
     watch: {
@@ -31,20 +32,18 @@
         scrollerInner.style.left = left + 'px'
         scrollerInner.style.transition = 'transform ' + time + 's linear 0s'
         scrollerInner.style.transform = 'translateX(-' + scrollWidth + 'px)'
-        console.log(scrollWidth, time)
         clearInterval(this.itvl)
         this.itvl = setInterval(() => {
           this.$nextTick(() => {
-            scrollerInner.style.transition = ''
-            scrollerInner.style.transform = ''
-            this.$nextTick(() => {
-              setTimeout(() => {
-                scrollerInner.style.transition = 'transform ' + time + 's linear 0s'
-                scrollerInner.style.transform = 'translateX(-' + scrollWidth + 'px)'
-              }, 1)
-            })
+            scrollerInner.style.transition = 'transform 1ms linear 0s'
+            scrollerInner.style.transform = 'translateX(-0px)'
+            clearInterval(this.tm)
+            this.tm = setTimeout(() => {
+              scrollerInner.style.transition = 'transform ' + time + 's linear 0s'
+              scrollerInner.style.transform = 'translateX(-' + scrollWidth + 'px)'
+            }, 100)
           })
-        }, time * 1000)
+        }, time * 1000 + 100)
       }
     }
   }
