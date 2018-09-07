@@ -1,23 +1,29 @@
 <template>
   <div class="content">
-    <input type="button" @click="showPop('80%', '40%')" value="大">
-    <input type="button" @click="showPop('60%')" value="中">
-    <input type="button" @click="showPop('40%', 200)" value="小">
-    <input type="button" @click="showPop('60%', 200, true)" value="不显示叉叉">
-    <popups
-      :pop-option.sync="popOption"
-      :btn-confirm-callback="modalConfirm"
-      :btn-cancel-callback="modalCancel"
-      :show-close="popOption.showClose"
-    >
-      <div slot="header">
-        这里是头部
-      </div>
-
-      <div slot="body">
-        这里是内容
-      </div>
-    </popups>
+    <div class="padding-10">
+      <input type="button" class="btn" @click="popPosition(0)" value="弹出popup"/>
+      <input type="button" class="btn" @click="popPosition(1)" value="从顶部弹出popup"/>
+      <input type="button" class="btn" @click="popPosition(3)" value="从底部弹出popup"/>
+      <input type="button" class="btn" @click="popPosition(4)" value="从左边弹出popup"/>
+      <input type="button" class="btn" @click="popPosition(2)" value="从右边弹出popup"/>
+    </div>
+    <div v-for="(item, i) in popData"  :key="i">
+      <popups :show.sync="item.showPopup" :position.sync="item.position" :id.sync="i" :maskHide.sync="item.maskHide">
+        <div slot="popContainer">
+          <div class="pop-inner" :class="'pop-'+item.position">
+            <div class="pop-text">忆江南</div>
+            <div class="pop-text">江南好</div>
+            <div class="pop-text">风景旧曾谙</div>
+            <div class="pop-text">日出江花红胜火</div>
+            <div class="pop-text">春来江水绿如蓝</div>
+            <div class="pop-text">能不忆江南</div>
+            <button class="btn btn-kai margin-top20" @click="close(i)">
+              关闭 
+            </button>
+          </div>
+        </div>
+      </popups>
+    </div> 
   </div>
 </template>
 
@@ -29,43 +35,68 @@
     },
     data () {
       return {
-        popOption: {
-          show: true,
-          width: 400, // width,height 可以数值 可以百分比
-          showClose: true,
-          btnAlign: 'right',  // right:按钮靠右 center: 居中(默认)  left: 靠左
-          btnConfirm: {
-            name: '不确定',
-            show: true
+        popData: [
+          {
+            showPopup: true,
+            position: 'center',
+            maskHide: false
           },
-          btnCancel: {
-            name: '取消',
-            show: true
+          {
+            showPopup: false,
+            position: 'top',
+            maskHide: false
+          },
+          {
+            showPopup: false,
+            position: 'right'
+          },
+          {
+            showPopup: false,
+            position: 'bottom'
+          },
+          {
+            showPopup: false,
+            position: 'left'
           }
-        }
+        ]
       }
     },
     methods: {
-      showPop (w, h, nox) {
-        this.popOption.width = w
-        this.popOption.height = h
-        if (nox) {
-          this.popOption.showClose = false
-        } else {
-          this.popOption.showClose = true
-        }
-        this.popOption.show = true
+      popPosition (i) {
+        this.popData.map(function (r, i) {
+          r.showPopup = false
+        })
+        this.popData[i].showPopup = true
       },
-      modalConfirm () {
-        console.log('confirm')
-      },
-      modalCancel () {
-        console.log('cancel')
+      close (i) {
+        this.popData[i].showPopup = false
       }
     }
   }
 </script>
 
-<style scoped>
-
+<style lang="scss" scope>
+  @import "../static/common.scss";
+  .pop-inner {
+    padding: 40px 20px;
+    box-sizing: border-box;
+  }
+  .pop-text {
+    font-size: 16px;
+    text-align: center;
+    line-height: 28px;
+  }
+  .pop-center {
+    width: 240px;
+    height: 300px;
+  }
+  .pop-right {
+    width: 200px;
+  }
+  .pop-left {
+    width: 200px;
+  }
+  .btn {
+    margin-top: 20px;
+  }
 </style>

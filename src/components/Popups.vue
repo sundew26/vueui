@@ -1,214 +1,135 @@
 <template>
-  <transition name="pop">
-    <div class="pop-mask"  transition="pop" v-show="popOption.show==true">
-      <div class="pop-wrapper">
-        <div class="pop-container pop-container-padding"
-             :style="{width: options.width ? ((options.width + '').indexOf('%') > 0 ? options.width : options.width + 'px') : 'auto',
-             height: options.height ? ((options.height + '').indexOf('%') > 0 ? options.height : options.height + 'px') : 'auto'}">
-          <a class="pop-close"
-             @click="hide"
-             v-if="options.showClose">X
-          </a>
-          <div class="pop-header">
-            <slot name="header">
-              header
-            </slot>
-          </div>
-
-          <div class="pop-body">
-            <slot name="body">
-              body
-            </slot>
-          </div>
-
-          <div class="pop-footer"
-               :class="{left: options.btnAlign === 'left', center: options.btnAlign === 'center', right: options.btnAlign === 'right'}">
-            <slot name="footer">
-                <button class="pop-default-button pop-default-cancel"
-                  v-show="options.btnCancel.show"
-                  @click="btnCancelClick">
-                  {{ options.btnCancel.name }}
-                </button>
-                <button class="pop-default-button pop-default-sure"
-                  v-show="options.btnConfirm.show"
-                  @click="btnConfirmClick">
-                  {{ options.btnConfirm.name }}
-                </button>
-            </slot>
-          </div>
-
-        </div>
-      </div>
+  <div class="popup" :class="('popup-'+position)+' '+(show ? 'popup-show' : '')">
+    <div class="popup-mask" @tap="togglePopup(id, maskHide)"></div>
+    <div class="popup-container" :class="(position=='top'||position=='bottom') ? 'container100':''">
+      <slot name="popContainer"></slot>
     </div>
-  </transition>
+  </div>
 </template>
 <script>
   export default {
     props: {
-      popOption: {
-        type: Object,
+      id: { // 弹窗id
+        type: [Number, String],
         twoWay: true,
-        default: function () {
-          // name: 按钮名称  show: 是否显示按钮
-          return {
-            show: true,
-            showClose: true, // 是否显示右上角叉叉
-            btnAlign: 'center',
-            btnConfirm: { // 确定按钮默认设置
-              name: '确定',
-              show: true
-            },
-            btnCancel: { // 取消按钮默认设置
-              name: '取消',
-              show: true
-            }
-          }
-        }
+        default: 0
       },
-      btnConfirmCallback: { // 确定按钮默认回调方法
-        type: Function,
-        default: function () {
-          return function () {}
-        }
+      show: {  // 是否展示弹窗
+        type: [Boolean, String],
+        twoWay: true,
+        default: false
       },
-      btnCancelCallback: { // 取消按钮默认回调方法
-        type: Function,
-        default: function () {
-          return function () {}
-        }
+      position: { // 弹窗弹出位置
+        type: String,
+        twoWay: true,
+        default: 'bottom'
+      },
+      maskHide: { // mask false点击不可关闭
+        type: Boolean,
+        twoWay: true,
+        default: true
       }
     },
     data () {
       return {
-        options: this.popOption
       }
     },
     methods: {
-      btnConfirmClick () {
-        this.hide()
-        this.btnConfirmCallback()
-      },
-      btnCancelClick () {
-        this.hide()
-        this.btnCancelCallback()
-      },
-      hide () {
-        this.options.show = false
-      }
-    },
-    watch: {
-      popOption: {
-        handler: function (options) {
-          this.options = options
-        },
-        deep: true
+      // i: 索引 close: 关闭
+      togglePopup (i, close) {
+        if (close === false) {
+          return false
+        } else {
+          this.$emit('pop', i, close)
+        }
       }
     }
   }
 </script>
 <style scoped>
-  .pop-mask {
+  .popup-mask {
     position: fixed;
-    z-index: 9998;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, .7);
+    display: none
+  }
+
+  .popup-container {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    background: #fff;
+    transform: translate3d(-50%, -50%, 0);
+    transform-origin: center;
+    transition: all .4s ease;
+    z-index: 11;
+    opacity: 0
+  }
+  
+  .popup-center .popup-container {
+    z-index: -1;
+  }
+
+  .container100 {
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, .5);
-    display: table;
-    transition: opacity .3s ease;
   }
 
-  .pop-wrapper {
-    display: table-cell;
-    vertical-align: middle;
-  }
-
-  .pop-container {
-    position: relative;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 2px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
-    transition: all .3s ease;
-    font-family: Helvetica, Arial, sans-serif;
-    box-sizing: border-box;
-  }
-  .pop-container-padding {
-    padding: 20px 30px;
-  }
-  .pop-close{
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    position:absolute;
-    color:#999;
-    background-color: #F5F5F5;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
-    cursor: pointer;
-    z-index: 2;
-    top: -10px;
-    right: -10px;
-    transition: all ease .3s;
-  }
-  .pop-close:hover {
-    transform: scale(1.1);
-  }
-  .pop-header {
-    margin-top: 0;
-    color: #333;
-    text-align: center;
-  }
-  .pop-body {
-    margin: 20px 0;
-  }
-  .pop-body-zero{
-    margin:0;
-    line-height: 0;
-  }
-  .pop-footer{
-    overflow: hidden;
-  }
-  .pop-default-button {
-    height: 40px;
-    width: 80px;
-    margin: 10px;
-    border: none;
-    font-size: 14px;
-  }
-  .right {
-    text-align: right;
-
-  }
-  .left {
-    text-align: left;
-  }
-  .center {
-    text-align: center
-  }
-  .pop-default-cancel{
-    color:#666;
-    background: #E1E1E1;
-  }
-  .pop-default-sure{
-    color:#fff;
-    background: #34A853;
-  }
-
-  /*vue2.0 transition*/
-  .pop-enter-active, .pop-leave-active {
-    transition: opacity .6s;
+  .popup-show .popup-container {
     opacity: 1;
-  }
-  .pop-enter, .pop-leave-to{
-    opacity: 0;
+    z-index: 11;
   }
 
-  .pop-enter .pop-container,
-  .pop-leave-to .pop-container {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+  .popup-show .popup-mask {
+    display: block
   }
+
+  .popup-left .popup-container {
+    left: 0;
+    top: 0;
+    transform: translate3d(-100%, 0, 0)
+  }
+
+  .popup-show.popup-left .popup-container {
+    transform: translate3d(0, 0, 0);
+    top: 0;
+    height: 100%;
+  }
+
+  .popup-right .popup-container {
+    right: 0;
+    top: 0;
+    left: auto;
+    transform: translate3d(100%, 0, 0);
+    height: 100%;
+  }
+
+  .popup-show.popup-right .popup-container {
+    transform: translate3d(0, 0, 0)
+  }
+
+  .popup-bottom .popup-container {
+    top: auto;
+    left: 0;
+    bottom: 0;
+    transform: translate3d(0, 100%, 0)
+  }
+
+  .popup-show.popup-bottom .popup-container {
+    transform: translate3d(0, 0, 0)
+  }
+
+  .popup-top .popup-container {
+    top: 0;
+    left: auto;
+    transform: translate3d(0, -100%, 0)
+  }
+
+  .popup-show.popup-top .popup-container {
+    transform: translate3d(0, 0, 0)
+  }
+
 </style>
