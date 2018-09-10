@@ -52,30 +52,64 @@
     }
   }
 </script>
-<style scoped>
+<style lang="scss" scoped>
   @import "../static/iconfont.scss";
+  @import "../static/color.scss";
 
   .folder-title {
     text-align: left;
     color: #fff;
     line-height: 40px;
     padding: 0 10px;
-    background-color: #ed5565;
+    background-color: $primary;
     position: relative;
     overflow: hidden;
     cursor: pointer;
   }
   .folder-title.active {
-    background-color: #d60f23;
+    background-color: $primary;
   }
   .folder-content {
-    border-top: 1px solid #ed5565;
+    border-top: 1px solid $primary;
     transition: all linear .6s;
     /*overflow: hidden;*/
     text-align: left;
     max-height: 1000px;
     overflow: scroll;
     background-color: #fbfdff;
+  }
+  .folder-item.success {
+    .folder-title {
+      background-color: $success;
+    }
+    &.active {
+      background-color: $success;
+    }
+    .folder-content {
+      border-top: 1px solid $success;
+    }
+  }
+  .folder-item.warn {
+    .folder-title {
+      background-color: $warn;
+    }
+    &.active {
+      background-color: $warn;
+    }
+    .folder-content {
+      border-top: 1px solid $warn;
+    }
+  }
+  .folder-item.danger {
+    .folder-title {
+      background-color: $danger;
+    }
+    &.active {
+      background-color: $danger;
+    }
+    .folder-content {
+      border-top: 1px solid $danger;
+    }
   }
   .inner-content {
     padding: 10px;

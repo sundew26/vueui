@@ -84,23 +84,35 @@
     display: block;
     width: 100%;
   }
+  .min-radius {
+    border-radius: 4px;
+  }
   .btn-min {
     display: inline-block;
     height: 22px;
-    line-height: 20px;
+    line-height: 18px;
     width: auto;
+    .radius {
+      border-radius: 11px;
+    }
   }
 
   .btn-small {
     display: inline-block;
     height: 32px;
-    line-height: 30px;
+    line-height: 28px;
     width: auto;
+    .radius {
+      border-radius: 16px;
+    }
   }
 
   .btn-large {
     height: 50px;
-    line-height: 48px;
+    line-height: 46px;
+    .radius {
+      border-radius: 24px;
+    }
   }
 
   .btn-success {
@@ -109,7 +121,7 @@
   }
 
   .btn-warn {
-    color: $yellow-orange;
+    color: $white;
     background-color: $warn;
   }
 

@@ -74,10 +74,13 @@
   }
 </script>
 
-<style scoped>
-@import "../static/common.scss";
+<style lang="scss">
+  @import "../static/common.scss";
   button {
-    margin: 5px;
+    margin-bottom: 10px;
     box-sizing: border-box;
+  }
+  .info {
+    padding: 10px;
   }
 </style>

@@ -19,16 +19,16 @@
 
     <panel>
       <div slot="title" class="title">自定义颜色</div>
-      <switchs @switch-change="switchChange" :value="value" name="first" on-text="on" off-text="off" on-color="green" off-color="red"></switchs>
-      <switchs :value="value" on-text="on" off-text="off" on-color="blue" off-color="gold"></switchs>
+      <switchs @switch-change="switchChange" :value="value" name="first" on-text="on" off-text="off" on-color="#6FD700" off-color="#F75500"></switchs>
+      <switchs :value="value" on-text="on" off-text="off" on-color="#3594F5" off-color="#F6C900"></switchs>
       <switchs :value="value" on-text="on" off-text="off" on-color="pink" off-color="purple"></switchs>
       <switchs :value="value" on-text="on" off-text="off"></switchs>
     </panel>
 
     <panel>
       <div slot="title" class="title">自定义大小、文案、颜色</div>
-      <switchs width="60" height="30" @switch-change="switchChange" :value="value" name="first" on-text="on" off-text="off" on-color="green" off-color="red"></switchs>
-      <switchs width="60" height="30" :value="value" on-text="on" off-text="off" on-color="blue" off-color="gold"></switchs>
+      <switchs width="60" height="30" @switch-change="switchChange" :value="value" name="first" on-text="on" off-text="off" on-color="#6FD700" off-color="#F75500"></switchs>
+      <switchs width="60" height="30" :value="value" on-text="on" off-text="off" on-color="#3594F5" off-color="#F6C900"></switchs>
       <switchs width="60" height="30" :value="value" on-text="on" off-text="off" on-color="pink" off-color="purple"></switchs>
       <switchs width="70" height="30" turn-h="20" :value="value" on-text="on" off-text="off"></switchs>
     </panel>
@@ -58,4 +58,8 @@
 
 <style lang="scss">
   @import "../static/common.scss";
+  @import "../static/color.scss";
+  .info {
+    padding: 10px;
+  }
 </style>

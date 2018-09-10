@@ -46,11 +46,11 @@
     display: inline-block;
     flex: 1;
     height: 2px;
-    background-color: $gray;
+    background-color: $disabled;
     margin-right: -2px;
   }
   .icon-step {
-    color: $gray;
+    color: $disabled;
     margin-right: -2px;
   }
   .stepbar-el {

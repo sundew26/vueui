@@ -1,30 +1,28 @@
 <template>
   <div class="content">
-    <div class="common">
-      <panel>
-        <div slot="title" class="title">普通折叠</div>
-        <folder>
-          <folder-item v-for="(item, idx) in common" :key="idx" :title="item.title">
-            <div slot="content">
-              <p v-for="(para, index) in item.content" :key="index">{{para}}</p>
-            </div>
-          </folder-item>
-        </folder>
-      </panel>
-      
-    </div>
     <panel>
-        <div slot="title" class="title">手风琴折叠</div>
-        <folder accordion="true" @folder-accordion="folderAccordion">
-          <folder-item v-for="(item, idx) in accordion" :key="idx"
-                      :unfolder="idx===selIdx?unfolder:!unfolder"
-                      :title="item.title">
-            <div slot="content">
-              <p v-for="(para,index) in item.content" :key="index">{{para}}</p>
-            </div>
-          </folder-item>
-        </folder>
-      </panel>
+      <div slot="title" class="title">普通折叠</div>
+      <folder>
+        <folder-item v-for="(item, idx) in common" :key="idx" :title="item.title">
+          <div slot="content">
+            <p v-for="(para, index) in item.content" :key="index">{{para}}</p>
+          </div>
+        </folder-item>
+      </folder>
+    </panel>
+      
+    <panel>
+      <div slot="title" class="title">手风琴折叠</div>
+      <folder accordion="true" @folder-accordion="folderAccordion" class="warn">
+        <folder-item v-for="(item, idx) in accordion" :key="idx"
+                    :unfolder="idx===selIdx?unfolder:!unfolder"
+                    :title="item.title" class="warn">
+          <div slot="content">
+            <p v-for="(para,index) in item.content" :key="index">{{para}}</p>
+          </div>
+        </folder-item>
+      </folder>
+    </panel>
   </div>
 </template>
 
@@ -137,5 +135,5 @@
 </script>
 
 <style lang="scss">
-@import "../static/common.scss";
+  @import "../static/common.scss";
 </style>

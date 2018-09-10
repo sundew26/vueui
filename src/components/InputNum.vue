@@ -96,12 +96,27 @@
   }
   .input-num-box {
     overflow: hidden;
-    border: 1px solid $border;
+    border: 1px solid transparent;
     display: inline-block;
     border-radius: 4px;
     position: relative;
     min-width: 75px;
     max-width: 120px;
+    &.success {
+      .add, .minus {
+        background-color: $success;
+      }
+    }
+    &.warn {
+      .add, .minus {
+        background-color: $warn;
+      }
+    }
+    &.danger {
+      .add, .minus {
+        background-color: $danger;
+      }
+    }
   }
   .add {
     float: left;
@@ -110,7 +125,7 @@
     line-height: 30px;
     text-align: center;
     color: $white;
-    background-color: $danger;
+    background-color: $primary;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -126,7 +141,7 @@
     text-align: center;
     color: $color6;
     outline: none;
-    border: 0 none;
+    border: 1px solid $border;
     box-sizing: border-box;
   }
   .minus {
@@ -136,7 +151,7 @@
     line-height: 30px;
     text-align: center;
     color: $white;
-    background-color: $danger;
+    background-color: $primary;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;

@@ -62,23 +62,23 @@
     color: $color6;
   }
 
-  .tag-primary::after {
+  .tag-success::after {
     border-color: $border;
   }
 
-  .tag-primary {
+  .tag-success {
     color: $white;
     background-color: $success;
   }
 
-  .tag-primary::after {
+  .tag-success::after {
     border-color: $success;
   }
 
-  .tag-primary.tag-empty {
+  .tag-success.tag-empty {
     color: $success;
     background: $white;
-    border: 1px solid $primary;
+    border: 1px solid $success;
   }
 
   .tag-danger {
@@ -112,8 +112,14 @@
   }
 
   .tag-disabled {
-    color: $disabled !important;
-    background: $border;
+    color: $white !important;
+    background: $disabled;
+  }
+
+  .tag-disabled.tag-empty {
+    color: $white;
+    background: $disabled;
+    border: 1px solid $disabled;
   }
 
   .tag-disabled::after {

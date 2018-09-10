@@ -24,12 +24,22 @@
     }
   }
 </script>
-<style scoped>
+<style lang="scss" scoped>
   @import "../static/iconfont.scss";
+  @import "../static/color.scss";
 
   .folder {
-    border: 1px solid #edacac;
+    border: 1px solid $primary;
     border-top: 0 none;
+    &.success {
+      border: 1px solid $success;
+    }
+    &.warn {
+      border: 1px solid $warn;
+    }
+    &.danger {
+      border: 1px solid $danger;
+    }
   }
 
 </style>

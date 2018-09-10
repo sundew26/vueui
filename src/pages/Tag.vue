@@ -32,8 +32,8 @@
             text: 'tag-plain'
           },
           {
-            type: 'tag-primary',
-            text: 'tag-primary'
+            type: 'tag-success',
+            text: 'tag-success'
           },
           {
             type: 'tag-danger',
@@ -54,8 +54,8 @@
             text: 'tag-plain tag-empty'
           },
           {
-            type: 'tag-primary tag-empty',
-            text: 'tag-primary tag-empty'
+            type: 'tag-success tag-empty',
+            text: 'tag-success tag-empty'
           },
           {
             type: 'tag-danger tag-empty',
@@ -80,6 +80,9 @@
 <style lang="scss">
   @import "../static/common.scss";
   .tag{
-    margin: 10px;
+    margin: 10px 10px 0;
+  }
+  .info {
+    padding: 10px;
   }
 </style>

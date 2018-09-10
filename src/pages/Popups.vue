@@ -1,11 +1,11 @@
 <template>
   <div class="content">
     <div class="padding-10">
+      <input type="button" class="btn primary" @click="popPosition(1)" value="从顶部弹出popup"/>
+      <input type="button" class="btn success" @click="popPosition(3)" value="从底部弹出popup"/>
+      <input type="button" class="btn warn" @click="popPosition(4)" value="从左边弹出popup"/>
+      <input type="button" class="btn danger" @click="popPosition(2)" value="从右边弹出popup"/>
       <input type="button" class="btn" @click="popPosition(0)" value="弹出popup"/>
-      <input type="button" class="btn" @click="popPosition(1)" value="从顶部弹出popup"/>
-      <input type="button" class="btn" @click="popPosition(3)" value="从底部弹出popup"/>
-      <input type="button" class="btn" @click="popPosition(4)" value="从左边弹出popup"/>
-      <input type="button" class="btn" @click="popPosition(2)" value="从右边弹出popup"/>
     </div>
     <div v-for="(item, i) in popData"  :key="i">
       <popups :show.sync="item.showPopup" :position.sync="item.position" :id.sync="i" :maskHide.sync="item.maskHide">
@@ -98,5 +98,14 @@
   }
   .btn {
     margin-top: 20px;
+  }
+  .success {
+    background-color: $success;
+  }
+  .warn {
+    background-color: $warn;
+  }
+  .danger {
+    background-color: $danger;
   }
 </style>

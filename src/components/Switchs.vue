@@ -32,11 +32,11 @@
       },
       onColor: {  // on状态的颜色
         type: String,
-        default: '#34a853'
+        default: '#6FD700'
       },
       offColor: { // off状态的颜色
         type: String,
-        default: '#e66d72'
+        default: '#F75500'
       },
       value: {  // true  false值  true时 状态为on false状态为off
         type: Boolean,

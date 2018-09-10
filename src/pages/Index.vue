@@ -1,54 +1,68 @@
 <template>
   <div class="content">
-    <p>基础组件</p>
-    <cell v-for="(item, idx) in cell1" :key="item.content" :target="item.target" :icon-pic="item.pic"
-          :text-content="item.content"
-          :link="item.link"
-          :first="idx===0"
-          @item-tap="transPage"></cell>
+    <panel>
+      <div slot="title" class="title">基础组件</div>
+      <cell v-for="(item, idx) in cell1" :key="item.content" :target="item.target" :icon-pic="item.pic"
+            :text-content="item.content"
+            :link="item.link"
+            :first="idx===0"
+            @item-tap="transPage"></cell>
+    </panel>
 
-    <p>布局</p>
-    <cell v-for="(item, idx) in cell2" :key="item.content" :target="item.target" :icon-pic="item.pic"
-          :text-content="item.content"
-          :link="item.link"
-          :first="idx===0"
-          @item-tap="transPage"></cell>
+    <panel>
+      <div slot="title" class="title">布局</div>
+      <cell v-for="(item, idx) in cell2" :key="item.content" :target="item.target" :icon-pic="item.pic"
+            :text-content="item.content"
+            :link="item.link"
+            :first="idx===0"
+            @item-tap="transPage"></cell>
+    </panel>
 
-    <p>表单组件</p>
-    <cell v-for="(item, idx) in cell3" :key="item.content" :target="item.target" :icon-pic="item.pic"
-          :text-content="item.content"
-          :link="item.link"
-          :first="idx===0"
-          @item-tap="transPage"></cell>
+    <panel>
+      <div slot="title" class="title">表单组件</div>
+      <cell v-for="(item, idx) in cell3" :key="item.content" :target="item.target" :icon-pic="item.pic"
+            :text-content="item.content"
+            :link="item.link"
+            :first="idx===0"
+            @item-tap="transPage"></cell>
+    </panel>
 
-    <p>导航组件</p>
-    <cell v-for="(item, idx) in cell4" :key="item.content" :target="item.target" :icon-pic="item.pic"
-          :text-content="item.content"
-          :link="item.link"
-          :first="idx===0"
-          @item-tap="transPage"></cell>
+    <panel>
+      <div slot="title" class="title">导航组件</div>
+      <cell v-for="(item, idx) in cell4" :key="item.content" :target="item.target" :icon-pic="item.pic"
+            :text-content="item.content"
+            :link="item.link"
+            :first="idx===0"
+            @item-tap="transPage"></cell>
+    </panel>
 
-    <p>操作提示组件</p>
-    <cell v-for="(item, idx) in cell5" :key="item.content" :target="item.target" :icon-pic="item.pic"
-          :text-content="item.content"
-          :link="item.link"
-          :first="idx===0"
-          @item-tap="transPage"></cell>
+    <panel>
+      <div slot="title" class="title">操作提示组件</div>
+      <cell v-for="(item, idx) in cell5" :key="item.content" :target="item.target" :icon-pic="item.pic"
+            :text-content="item.content"
+            :link="item.link"
+            :first="idx===0"
+            @item-tap="transPage"></cell>
+    </panel>
 
-      <p>其它</p>
-    <cell v-for="(item, idx) in cell6" :key="item.content" :target="item.target" :icon-pic="item.pic"
-          :text-content="item.content"
-          :link="item.link"
-          :first="idx===0"
-          @item-tap="transPage"></cell>
+    <panel>
+      <div slot="title" class="title">其它</div>
+      <cell v-for="(item, idx) in cell6" :key="item.content" :target="item.target" :icon-pic="item.pic"
+            :text-content="item.content"
+            :link="item.link"
+            :first="idx===0"
+            @item-tap="transPage"></cell>
+    </panel>
   </div>
 </template>
 
 <script>
   import Cell from '../components/Cell.vue'
+  import Panel from '../components/Panel.vue'
   export default {
     components: {
-      Cell
+      Cell,
+      Panel
     },
     data () {
       return {

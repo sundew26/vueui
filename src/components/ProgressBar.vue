@@ -4,7 +4,7 @@
     <div v-if="pType==='liner'" class="progress-bar bg-gray"
       :style="{height: pH + 'px', 'border-radius': Number(pH)/2 + 'px'}">
       <span class="progress-inner"
-        :class="Number(percentage) <= 0 ? '' : Number(percentage) < 50 ? 'bg-red' : Number(percentage) === 50 ? 'bg-yellow' : Number(percentage) < 100 ? 'bg-blue' : 'bg-green'"
+        :class="Number(percentage) <= 0 ? '' : Number(percentage) < 50 ? 'danger' : Number(percentage) === 50 ? 'warn' : Number(percentage) < 100 ? 'primary' : 'success'"
         :style="{width: Number(percentage)+'%', 'border-radius': Number(pH)/2 + 'px'}">
       </span>
     </div>
@@ -142,17 +142,17 @@
     width: 10%;
     padding-left: 5px;
   }
-  .bg-red {
-    background-color: $red;
+  .danger {
+    background-color: $danger;
   }
-  .bg-yellow {
-    background-color: $yellow;
+  .warn {
+    background-color: $warn;
   }
-  .bg-blue {
-    background-color:$blue;
+  .primary {
+    background-color:$primary;
   }
-  .bg-green {
-    background-color: $green;
+  .success {
+    background-color: $success;
   }
 
   circle {

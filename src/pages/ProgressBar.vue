@@ -105,4 +105,7 @@
 
 <style lang="scss">
   @import "../static/common.scss";
+  .info {
+    padding: 20px;
+  }
 </style>
