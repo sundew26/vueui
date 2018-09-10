@@ -1,14 +1,20 @@
 <template>
   <div class="content">
-    <searchbar :active="active" :search-val="searchVal" @search="search"></searchbar>
+    <panel>
+      <div class="title" slot="title">搜索条</div>
+      <searchbar :active="active" :search-val.sync="searchVal" @search="search" class="mgb10"></searchbar>
+      <div class="search-value" v-show="searchVal">搜索词为：{{searchVal}}</div>
+    </panel>
   </div>
 </template>
 
 <script>
+  import Panel from '../components/Panel'
   import Searchbar from '../components/Searchbar'
   export default {
     components: {
-      Searchbar
+      Searchbar,
+      Panel
     },
     data () {
       return {
@@ -19,17 +25,15 @@
     methods: {
       search (val, active) {
         console.log('search val', val, active)
+        this.searchVal = val
       }
     }
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import "../static/common.scss";
-  .list {
-    color: #808080;
-  }
-  .bold {
-    font-weight: bold;
+  .info {
+    padding: 10px;
   }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="content padding-10">
+  <div class="content">
     <panel>
       <div slot="title" class="title">横向步骤条3步</div>
       <stepbar :steps="steps"></stepbar>
@@ -57,9 +57,12 @@
   }
 </script>
 
-<style>
+<style lang="scss">
 @import "../static/common.scss";
   .stepbar-texts {
     height: 72px;
+  }
+  .info {
+    padding-bottom: 10px;
   }
 </style>

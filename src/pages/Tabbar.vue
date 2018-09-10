@@ -1,7 +1,7 @@
 <template>
-  <div class="content padding-10">
+  <div class="content">
     <panel>
-      <div slot="title" class="title">四个tab，bar宽度1</div>
+      <div slot="title" class="title">四个tab，bar高度1</div>
       <tabbar :tabbar="tabbar" :tab-color="tabColor" :callback="callback"></tabbar>
       <ul>
         <li v-for="(item, index) in tabbar" :key="index" v-show="index===selIdx">{{index}}{{item}}</li>
@@ -9,7 +9,7 @@
     </panel>
 
     <panel>
-      <div slot="title" class="title">两个tab，bar宽度2</div>
+      <div slot="title" class="title">两个tab，bar高度2</div>
       <tabbar :tabbar="tabbar1" bottom-height="2" :tab-color="tabColor1" :callback="callback1"></tabbar>
       <ul>
         <li v-for="(item, index) in tabbar1" :key="index" v-show="index===selIdx1">{{index}}{{item}}</li>
@@ -50,8 +50,8 @@
   }
 </script>
 
-<style scoped>
-@import "../static/common.scss";
+<style lang="scss">
+  @import "../static/common.scss";
   ul li {
     list-style: none;
   }

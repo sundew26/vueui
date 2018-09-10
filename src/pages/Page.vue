@@ -1,5 +1,5 @@
 <template>
-  <div class="content padding-10">
+  <div class="content">
     <panel>
       <div slot="title" class="title">5页</div>
       <page @change-current="changeCurrent" :page-count="5" :current="current" :page-size="10"
@@ -53,10 +53,9 @@
   }
 </script>
 
-<style scoped>
-@import "../static/common.scss";
-  button {
-    margin: 5px;
-    box-sizing: border-box;
+<style lang="scss">
+  @import "../static/common.scss";
+  .btn {
+    margin-top: 10px;
   }
 </style>

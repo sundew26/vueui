@@ -49,7 +49,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import "../static/common.scss";
   .content {
     margin-top: 50px;

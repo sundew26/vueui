@@ -66,7 +66,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import "../static/common.scss";
   .btn {
     margin-top: 10px;

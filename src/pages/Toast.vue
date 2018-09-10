@@ -1,12 +1,12 @@
 <template>
   <div class="content">
-    <input type="button" @click="showToast(1)" value="默认"/>
-    <input type="button" @click="showToast(2)" value="中部"/>
-    <input type="button" @click="showToast(3)" value="顶部"/>
-    <input type="button" @click="showToast(4)" value="底部"/>
-    <input type="button" @click="showToast(5)" value="警告"/>
-    <input type="button" @click="showToast(6)" value="取消"/>
-    <input type="button" @click="showToast(7)" value="1s消失"/>
+    <input type="button" class="btn" @click="showToast(1)" value="默认"/>
+    <input type="button" class="btn" @click="showToast(2)" value="中部"/>
+    <input type="button" class="btn" @click="showToast(3)" value="顶部"/>
+    <input type="button" class="btn" @click="showToast(4)" value="底部"/>
+    <input type="button" class="btn" @click="showToast(5)" value="警告"/>
+    <input type="button" class="btn" @click="showToast(6)" value="取消"/>
+    <input type="button" class="btn" @click="showToast(7)" value="1s消失"/>
     <Toast @toast-hide="toastHide" :show="toast.show" :position="toast.position" :type="toast.type" :time="toast.time"
             :msg="toast.msg"></Toast>
   </div>
@@ -104,6 +104,9 @@
   }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+  @import "../static/common.scss";
+  .btn {
+    margin-top: 10px;
+  }
 </style>

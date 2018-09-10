@@ -55,6 +55,7 @@
     min-height: 30px;
     box-sizing: border-box;
     position: relative;
+    overflow: hidden;
   }
   .scoller {
     line-height: 30px;

@@ -1,12 +1,8 @@
 <template>
   <div class="content">
-    <div class="kai-content">
-      <div class="padding-10">
-        <button class="btn btn-success" @click="showActionSheet(0)">从顶部弹出popup</button>
-        <button class="btn btn-kai" @click="showActionSheet(1)">从底部弹出ActionSheet</button>
-      </div>
-      <action-sheet v-for="(item, index) in asData" :key="index" :as-data.sync="item" @action-sheet="actionSheet"></action-sheet>
-    </div>
+    <input class="btn btn-success mgb10" @click="showActionSheet(0)" value="从顶部弹出popup"/>
+    <input class="btn btn-kai mgb10" @click="showActionSheet(1)" value="从底部弹出ActionSheet"/>
+    <action-sheet v-for="(item, index) in asData" :key="index" :as-data.sync="item" @action-sheet="actionSheet"></action-sheet>
   </div>
 </template>
 
@@ -96,7 +92,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import "../static/common.scss";
   .list {
     color: #808080;
