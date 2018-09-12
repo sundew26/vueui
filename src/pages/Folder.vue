@@ -13,10 +13,10 @@
       
     <panel>
       <div slot="title" class="title">手风琴折叠</div>
-      <folder accordion="true" @folder-accordion="folderAccordion" class="warn">
+      <folder accordion="true" @folder-accordion="folderAccordion" class="success">
         <folder-item v-for="(item, idx) in accordion" :key="idx"
                     :unfolder="idx===selIdx?unfolder:!unfolder"
-                    :title="item.title" class="warn">
+                    :title="item.title" class="success">
           <div slot="content">
             <p v-for="(para,index) in item.content" :key="index">{{para}}</p>
           </div>

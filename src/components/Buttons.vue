@@ -130,6 +130,11 @@
     background-color: $danger;
   }
 
+  .btn-disabled {
+    color: $white;
+    background-color: $disabled;
+  }
+
   .btn-empty {
     color: $color6;
     background-color: $white;

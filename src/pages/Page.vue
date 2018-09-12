@@ -58,4 +58,7 @@
   .btn {
     margin-top: 10px;
   }
+  .info {
+    padding: 10px;
+  }
 </style>

@@ -16,7 +16,16 @@
       <div class="col col-4">4: 16.66%</div><div class="col col-4">4: 16.66%</div><div class="col col-4">4: 16.66%</div><div class="col col-4">4: 16.66%</div><div class="col col-4">4: 16.66%</div><div class="col col-4">4: 16.66%</div>
     </div>
     <div class="layout layout-list">
-      <div class="col col-4">4</div><div class="col col-4 col-offset-4">4 4</div><div class="col col-8 col-offset-4">4 8</div>
+      <div class="col col-4">4</div><div class="col col-4 col-offset-4">4 4</div><div class="col col-4 col-offset-4">4 4</div>
+    </div>
+    <div class="layout layout-list">
+      <div class="col col-4  col-offset-4">4 4</div><div class="col col-4 col-offset-4">4 4</div><div class="col col-4 col-offset-4">4 4</div>
+    </div>
+     <div class="layout layout-list">
+      <div class="col col-8">8</div><div class="col col-8 col-offset-8">8 8</div>
+    </div>
+    <div class="layout layout-list">
+      <div class="col col-8 col-offset-8">8 8</div>
     </div>
     <div class="layout layout-list">
       <div class="col col-4">col-4</div>
@@ -30,7 +39,7 @@
     <div class="layout layout-list">
       <div class="col col-8 col-offset-16">offset-16</div>
     </div>
-    <div class="layout layout-list">
+    <!-- <div class="layout layout-list">
       <div class="col col-1">1</div>
     </div>
      <div class="layout layout-list">
@@ -101,7 +110,7 @@
     </div>
      <div class="layout layout-list">
       <div class="col col-24">24</div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -122,8 +131,7 @@
 
 <style lang="scss">
   @import "../static/common.scss";
-</style>
-<style lang="scss" scoped>
+  @import "../static/color.scss";
   div {
     margin: 0;
   }
@@ -133,13 +141,19 @@
   .layout-list {
     margin-bottom: 10px;
     .col {
-      background-color: #d4a260;
+      background-color: $info;
       color: #fff;
       text-align: center;
       font-size: 12px;
       line-height: 30px;
       &:nth-child(2n) {
-        background-color: #C59E6C;
+        background-color: $success;
+      }
+      &:nth-child(3n) {
+        background-color: $warn;
+      }
+      &:nth-child(4n) {
+        background-color: $danger;
       }
     }
   }

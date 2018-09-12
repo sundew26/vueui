@@ -1,12 +1,12 @@
 <template>
   <div class="content">
-    <input type="button" class="btn" @click="showToast(1)" value="默认"/>
-    <input type="button" class="btn" @click="showToast(2)" value="中部"/>
-    <input type="button" class="btn" @click="showToast(3)" value="顶部"/>
-    <input type="button" class="btn" @click="showToast(4)" value="底部"/>
-    <input type="button" class="btn" @click="showToast(5)" value="警告"/>
-    <input type="button" class="btn" @click="showToast(6)" value="取消"/>
-    <input type="button" class="btn" @click="showToast(7)" value="1s消失"/>
+    <button class="btn btn-info" @click="showToast(1)">默认</button>
+    <button class="btn btn-success" @click="showToast(2)">中部</button>
+    <button class="btn btn-warn" @click="showToast(3)">顶部</button>
+    <button class="btn btn-danger" @click="showToast(4)">底部</button>
+    <button class="btn btn-info" @click="showToast(5)">警告</button>
+    <button class="btn btn-warn" @click="showToast(6)">取消</button>
+    <button class="btn btn-danger" @click="showToast(7)">1s消失</button>
     <Toast @toast-hide="toastHide" :show="toast.show" :position="toast.position" :type="toast.type" :time="toast.time"
             :msg="toast.msg"></Toast>
   </div>
@@ -106,6 +106,7 @@
 
 <style lang="scss">
   @import "../static/common.scss";
+  @import "../static/iconfont.scss";
   .btn {
     margin-top: 10px;
   }

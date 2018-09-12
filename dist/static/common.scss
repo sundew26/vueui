@@ -13,8 +13,14 @@ button {
     margin: 0;
 }
 input {
+    outline-style: none ;
+	outline-width: 0px ;
+	text-shadow: none ;
+	-webkit-appearance: none ;
+	-webkit-user-select: text ;
+	outline-color: transparent ;
+	box-shadow: none;
     border: 1px solid $border;
-    outline: none;
     &:focus {
         border-color: $success;
     }
@@ -255,7 +261,7 @@ input {
   }
 
   .btn-warn {
-    color: $yellow-orange;
+    color: $white;
     background-color: $warn;
   }
 

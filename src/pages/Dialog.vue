@@ -1,9 +1,9 @@
 <template>
   <div class="content">
-    <input type="button" class="btn" @click="showDialog('80%', '')" value="宽度80% 高度自适应">
-    <input type="button" class="btn" @click="showDialog('70%', 300)" value="宽度70% 高度300px">
-    <input type="button" class="btn" @click="showDialog('65%', '')" value="宽度65%">
-    <input type="button" class="btn" @click="showDialog('80%', '', true)" value="不显示叉叉">
+    <button class="btn btn-info" @click="showDialog('80%', '')">宽度80% 高度自适应</button>
+    <button class="btn btn-success" @click="showDialog('70%', 300)">宽度70% 高度300px</button>
+    <button class="btn btn-warn" @click="showDialog('65%', '')">宽度65%</button>
+    <button class="btn btn-danger" @click="showDialog('80%', '', true)">不显示叉叉</button>
     <Dialog
       :dialog-option.sync="dialogOption"
       :btn-confirm-callback="modalConfirm"

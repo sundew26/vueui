@@ -1,7 +1,7 @@
 <template>
   <div class="content">
-    <input class="btn btn-success mgb10" @click="showActionSheet(0)" value="从顶部弹出popup"/>
-    <input class="btn btn-kai mgb10" @click="showActionSheet(1)" value="从底部弹出ActionSheet"/>
+    <button class="btn btn-success mgb10" @click="showActionSheet(0)">从顶部弹出popup</button>
+    <button class="btn btn-kai mgb10" @click="showActionSheet(1)">从底部弹出ActionSheet</button>
     <action-sheet v-for="(item, index) in asData" :key="index" :as-data.sync="item" @action-sheet="actionSheet"></action-sheet>
   </div>
 </template>
@@ -21,14 +21,14 @@
               value: '江南忆',
               event: '',
               slotid: 'slotid0',
-              slot: '<div class="iconfont icon-success">alot1</div><div class="iconfont icon-delete">alot11</div>'
+              slot: '<div class="iconfont icon-success info">我是一个插槽</div>'
             },
             {
               class: 'list',
               value: '其次忆吴宫',
               event: '',
               slotid: 'slotid1',
-              slot: '<div class="iconfont icon-minus">slot2</div><div class="iconfont icon-plus">alot21</div>'
+              slot: '<div class="iconfont icon-delete success">我是一个插槽</div>'
             },
             {
               class: 'list',
@@ -94,10 +94,18 @@
 
 <style lang="scss">
   @import "../static/common.scss";
+  @import "../static/iconfont.scss";
+  @import "../static/color.scss";
   .list {
     color: #808080;
   }
   .bold {
     font-weight: bold;
+  }
+  .info {
+    color: $info;
+  }
+  .success {
+    color: $success;
   }
 </style>

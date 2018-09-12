@@ -61,16 +61,16 @@
     color: #fff;
     line-height: 40px;
     padding: 0 10px;
-    background-color: $primary;
+    background-color: $info;
     position: relative;
     overflow: hidden;
     cursor: pointer;
   }
   .folder-title.active {
-    background-color: $primary;
+    background-color: $info;
   }
   .folder-content {
-    border-top: 1px solid $primary;
+    border-top: 1px solid $info;
     transition: all linear .6s;
     /*overflow: hidden;*/
     text-align: left;

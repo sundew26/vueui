@@ -69,8 +69,8 @@
     left: 0;
     width: 100%;
     text-align: center;
-    background-color: $border;
-    color: $color9;
+    background-color: $info;
+    color: $white;
     z-index: 999;
     transform: translateY(-100%);
     box-sizing: border-box;

@@ -29,7 +29,7 @@
   @import "../static/color.scss";
 
   .folder {
-    border: 1px solid $primary;
+    border: 1px solid $info;
     border-top: 0 none;
     &.success {
       border: 1px solid $success;

@@ -1,9 +1,9 @@
 <template>
   <div class="content">
-    <button class="btn mgb10" @click="showToast(0)">普通</button>
-    <button class="btn mgb10" @click="showToast(1)">错误</button>
-    <button class="btn mgb10" @click="showToast(2)">警告</button>
-    <button class="btn mgb10" @click="showToast(3)">成功</button>
+    <button class="btn btn-info mgb10" @click="showToast(0)">普通</button>
+    <button class="btn btn-danger mgb10" @click="showToast(1)">错误</button>
+    <button class="btn btn-warn mgb10" @click="showToast(2)">警告</button>
+    <button class="btn btn-success mgb10" @click="showToast(3)">成功</button>
     <toptips :show.sync="show0" msg="这是一个普通的提示条" @toast-end="toastEnd"/>
     <toptips type="error" :show.sync="show1" msg="这是一个错误信息提示条" @toast-end="toastEnd"/>
     <toptips type="warn" :show.sync="show2" msg="这是一个警告信息提示条" @toast-end="toastEnd"/>

@@ -30,10 +30,10 @@
     data () {
       return {
         tabbar: ['蓝色妖姬', '彼岸花', '洛神花', '夕颜花'], // tabbar的四个item内容
-        tabColor: '#208A00',  // 点击状态item的颜色
+        tabColor: '#6FD700',  // 点击状态item的颜色
         selIdx: 0,  // 默认选中
         tabbar1: ['六月雪', '凤凰木'],
-        tabColor1: '#F40000',
+        tabColor1: '#F75500',
         selIdx1: 0
       }
     },

@@ -100,11 +100,15 @@
   .ac-list {
     text-align: center;
     font-size: 12px;
-    border-bottom: 1rpx solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
     min-height: 45px;
     line-height: 45px;
     background: #fff;
-    &:last-of-type {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    &:last-child {
       border-bottom: none;
     }
     &.mt5 {

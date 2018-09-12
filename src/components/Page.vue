@@ -115,7 +115,7 @@
     min-width: 22px;
     height: 22px;
     margin: 0;
-    border: 1px solid $color9;
+    border: 1px solid $info;
     color: $color6;
     line-height: 22px;
     text-align: center;
@@ -124,14 +124,14 @@
     flex-direction: row;
   }
   .page-nav ul li:first-child {
-    border-left:1px solid $color9;
+    border-left:1px solid $info;
   }
   .page-nav ul li:last-child {
     padding-left: 10px;
     border: 0 none;
   }
   .page-nav ul li.active {
-    background: $success;
+    background: $info;
   }
   .page-nav ul li.active a{
     color: #fff;
@@ -140,10 +140,10 @@
     width: 100%;
     display: block;
     cursor: pointer;
-    color: $color6;
+    color: $info;
   }
   .jump {
-    border: 1px solid $color9;
+    border: 1px solid $info;
     width: 50px;
     height: 22px;
     line-height: 22px;
@@ -153,7 +153,7 @@
     color: $color6;
   }
   .jump:focus {
-    border: 1px solid $color9;
+    border: 1px solid $info;
     outline: none;
   }
   .page-nav span {

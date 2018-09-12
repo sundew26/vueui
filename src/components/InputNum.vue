@@ -143,6 +143,8 @@
     outline: none;
     border: 1px solid $border;
     box-sizing: border-box;
+    border-radius: 0;
+    box-shadow: 0;
   }
   .minus {
     float: left;
@@ -159,7 +161,7 @@
     user-select: none;
   }
   .gray {
-    background-color: $disabled;
+    background-color: $disabled!important;
     cursor: default;
   }
   .arrow-up {

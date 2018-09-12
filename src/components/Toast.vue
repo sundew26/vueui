@@ -2,8 +2,8 @@
   <transition name="toast">
     <div class="toast" v-show="toastShow==true"
          :class="{top: position==='top', middle: position==='middle', bottom: position==='bottom'}">
-      <span v-if="type==='cancel'" class="icon-cancel"></span>
-      <span v-if="type==='warn'" class="icon-warn"></span>
+      <span v-if="type==='cancel'" class="icon-close-circle"></span>
+      <span v-if="type==='warn'" class="icon-warning"></span>
       {{msg}}
     </div>
   </transition>
@@ -59,7 +59,7 @@
     }
   }
 </script>
-<style scoped>
+<style lang="scss" scoped>
   @import "../static/iconfont.scss";
   .toast {
     padding: 0 10px;
