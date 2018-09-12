@@ -1,5 +1,5 @@
 <template>
-  <div @click="translateToPage(link)" :target="target" class="cell" :class="{'cell-first': !!first}">
+  <div @click="translateToPage(link)" :target="target" class="cell border-bottom" :class="{'border-top': !!first}">
     <span v-if="iconPic && iconPic.indexOf('.') < 0" class="cell-icon" :class="iconPic"></span>
     <img v-if="iconPic && iconPic.indexOf('.') >= 0" class="cell-img" :src="iconPic"/>
     <span v-if="textContent" class="cell-text">{{textContent}}</span>
@@ -54,7 +54,7 @@
     padding: 10px;
     line-height: 20px;
     color: $color3;
-    border-bottom: 1px solid $border;
+    // border-bottom: 1px solid $border;
     text-decoration: none;
   }
   .cell-first {
@@ -85,5 +85,7 @@
     width: 20px;
     height: 20px;
     color: $color9;
+    text-align: center;
+    line-height: 20px;
   }
 </style>

@@ -2,12 +2,12 @@
   <div  class="input-num-box clearfix" :init-val="initVal" :max="max" :min="min" :increase="increase">
     <div v-if="!!arrow">
       <span class="minus arrow-down icon-down" :class="{gray: Number(inputVal) <= Number(min)}" @click="minus"></span>
-      <input v-model="inputVal" :name="name" type="text" @keyup="valid" value="0" class="input-number"/>
+      <input v-model="inputVal" :name="name" type="number" @keyup="valid" value="0" class="input-number"/>
       <span class="add arrow-up icon-up" :class="{gray: Number(inputVal) >= Number(max)}" @click="add"></span>
     </div>
     <div v-if="!arrow">
       <span class="minus icon-minus" :class="{gray: Number(inputVal) <= Number(min)}" @click="minus"></span>
-      <input v-model="inputVal" :name="name" type="text" @keyup="valid" value="0" class="input-number"/>
+      <input v-model="inputVal" :name="name" type="number" @keyup="valid" value="0" class="input-number"/>
       <span class="add icon-plus" :class="{gray: Number(inputVal) >= Number(max)}" @click="add"></span>
     </div>
   </div>
